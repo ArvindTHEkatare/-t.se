@@ -7,31 +7,35 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="header">
-        <div class="leftsection">
-            <div class="logoclick">
-                <img src="../images/image-removebg-preview.png" alt="logo" class="logo">
-                <span class="site">Ät.se</span>
+    <!--Här är header och alla knappar inom den-->
+        <div class="header">
+            <div class="leftsection">
+                <div class="logoclick">
+                    <a href="index.html"><img src="../images/image-removebg-preview.png" alt="logo" class="logo"></a>
+                    <a href="index.html"><span class="site">Ät.se</span></a>
+                </div>
+            <a href="omoss.html"><button class="omoss">Om oss</button></a>
             </div>
-          <a href="omoss.html"><button class="omoss">Om oss</button></a>
+            <div class="logincart">
+                <a href="login.html"><button class="login">Logga In</button></a>
+                <a href="register.html"><button class="register">Registrera</button></a>
+                <a href="kundvagn.html"><img src="../images/basket-cart-icon-27.png" alt="cart" class="cart-icon"></a>
+            </div>
         </div>
-        <div class="logincart">
-            <a href="login.html"><button class="login">Logga In</button></a>
-            <a href="register.html"><button class="register">Registrera</button></a>
-            <img src="../images/basket-cart-icon-27.png" alt="cart" class="cart-icon">
-        </div>
-      </div>
+    <!--Bara slogan-->
     <div class="slogan">
         <h2>Du vet inte när du får mat nästa gång</h2>
     </div>
+    <!--Söklådan för adress-->
     <div class="middlesection">
         <div class="leveransadress">
             <div class="textadress">
-                <button class="gps"></button>
-                <h3>Ange Leveransadress:</h3>
+                <img src="../images/free-location-icon-2952-thumb.png" alt="gps" class="gps">
+                <input type="text" id="input" placeholder="Ange Leveransadress">
             </div>
         </div>
     </div>
+    <!--kod för keyframe-->
     <div class="slider">
         <div class="slide-track">
           <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
@@ -62,5 +66,6 @@
           <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
         </div>
       </div>
+<script src="../backend/index.js"></script>
 </body>
 </html>
