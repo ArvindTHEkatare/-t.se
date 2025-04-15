@@ -92,10 +92,47 @@ body {
     height: 100%;
   }
 
-  .deal1 {
+  .deals{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 20px;
+    gap: 100px;
+  }
+
+  .deal1,.deal2, .deal3 {
     background-color: greenyellow;
-    width: 150px;
-    height: 100px;
+    width: 250px;
+    height: 150px;
     border-radius: 20px;
     display: flex;
+  }
+
+  .rest {
+    padding: 40px 20px;
+  }
+  
+  .rest-card {
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    height: 100%;
+  }
+  
+  .rest-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .rest-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  
+  .caption {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
   }
