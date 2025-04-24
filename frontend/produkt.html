@@ -14,7 +14,7 @@
         margin-top: 15px;
     }
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 20px auto;
       background: white;
       border-radius: 20px;
@@ -59,6 +59,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      margin-right: 20px;
     }
 
     .search-and-tabs {
@@ -67,12 +68,18 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 10px;
+      margin-left: 350px;
+
     }
 
+
     .search-and-tabs input {
+      width: 290px;
+      position: absolute;
       padding: 8px;
+      left: 110px;
       border-radius: 20px;
-      border: 1px solid #ccc;
+      border: 1px solid #FFFFFF;
       flex: 1;
     }
 
@@ -82,9 +89,9 @@
       cursor: pointer;
     }
 
-    .tabs .active {
+    /* .tabs .active {
       border-bottom: 2px solid black;
-    }
+    } */
 
     .menu-grid {
       display: grid;
@@ -114,7 +121,7 @@
       position: absolute;
       opacity: 100%;
       margin-bottom: 45px;
-      margin-left: 270px;
+      margin-left: 340px;
     }
 
     .menu-details {
@@ -140,6 +147,36 @@
       cursor: pointer;
 
     }
+
+    .kartaBild {
+      position: absolute;
+      border-radius: 25px;
+      right: 300px;
+      
+    }
+
+    .clockBild {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 1255px;
+      top: 100px;
+    }
+
+    .locationBild{
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      left: 1255px;
+      top: 50px;
+    }
+
+    .searchBild {
+      position: absolute;
+      left: 70px;
+      width: 25px;
+      height: 25px
+    }
   </style>
 </head>
 <body>
@@ -154,20 +191,26 @@
         </div>
       </div>
       <div class="map">
-        <img src="https://via.placeholder.com/250x100" alt="karta">
+        <img class="kartaBild" src="../images/mcdonaldsKarta.png" alt="karta">
         <div class="location-info">
-          <p> Kronhusgatan 24</p>
+
+          <p>(Din address)</p>
           <p> Stänger ner Kl. 22:00</p>
         </div>
       </div>
     </div>
 
-    <div class="search-and-tabs">
-      <input type="text" placeholder="Sök i meny">
+
+    <img class="locationBild" src="../images/free-location-icon-2952-thumb.png" alt="location bild">
+    <img class="clockBild" src="../images/clockbild.png" alt="bild av en klocka ">
+
+    <div class="search-and-tabs">    
+      <img class="searchBild" src="../images/search-interface-symbol.png" alt="sökBild">
+      <input class="searchDel" type="text" placeholder="Sök i meny">
       <div class="tabs">
         <span>🔥 Populärt</span>
-        <span>Rulle</span>
-        <span class="active">Pizza</span>
+        <span>Nötkött</span>
+        <span class="active">Kyckling</span>
         <span>Vegetarisk</span>
       </div>
     </div>
@@ -235,6 +278,10 @@
           <img class="matBild" src="https://www.mcdonalds.com.sg/sites/default/files/2023-02/9pc%20McNuggets_0.png" alt="kycklingrulle">
           <div class="plus-button">+</div>
         </div>
+      </div>
+
+      <div class="nötKött">
+
       </div>
 </body>
 </html>
