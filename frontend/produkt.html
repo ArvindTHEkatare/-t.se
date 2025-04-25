@@ -83,10 +83,11 @@
       flex: 1;
     }
 
-    .tabs span {
+    .tabs a {
       margin: 0 10px;
       font-weight: bold;
       cursor: pointer;
+      color: black;
     }
 
     /* .tabs .active {
@@ -177,6 +178,64 @@
       width: 25px;
       height: 25px
     }
+
+    .beefMeat {
+      margin-top: 4vh;
+      background-color: red;
+      opacity: 30%;
+      border-radius: 20px;
+      height: 4vh;
+
+      display: flex;
+      justify-content: center; 
+      align-items: center;     
+    }
+
+    .beefMeatText {
+      color: white;
+      margin: 0;
+    }
+
+    .chickenMeat {
+      margin-top: 4vh;
+      background-color: red;
+      opacity: 30%;
+      border-radius: 20px;
+      height: 4vh;
+
+      display: flex;
+      justify-content: center; 
+      align-items: center;     
+    }
+
+    .chickenMeatText {
+      color: white;
+      margin: 0;
+    }
+
+    .vegetarian {
+      margin-top: 4vh;
+      background-color: red;
+      opacity: 30%;
+      border-radius: 20px;
+      height: 4vh;
+
+      display: flex;
+      justify-content: center; 
+      align-items: center;     
+    }
+
+    .vegetarianText {
+      color: white;
+      margin: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+
+    }
+
+
   </style>
 </head>
 <body>
@@ -208,10 +267,12 @@
       <img class="searchBild" src="../images/search-interface-symbol.png" alt="sökBild">
       <input class="searchDel" type="text" placeholder="Sök i meny">
       <div class="tabs">
-        <span>🔥 Populärt</span>
-        <span>Nötkött</span>
-        <span class="active">Kyckling</span>
-        <span>Vegetarisk</span>
+        <nav>
+          <a href="#popular">🔥 Populärt</a>
+          <a href="#notkott">Nötkött</a>
+          <a href="#kyckling">Kyckling</a>
+          <a href="#vegetarisk">Vegetarisk</a>
+        </nav>
       </div>
     </div>
 
@@ -280,8 +341,119 @@
         </div>
       </div>
 
-      <div class="nötKött">
 
+      <div id="notkott">
+      <div class="beefMeat">
+        <p class="beefMeatText">Nötkött</p>
       </div>
+      <div class="menu-grid">     
+        <div class="menu-item">
+          <div class="menu-details">
+            <h3>Kycklingrulle</h3>
+            <strong>140kr</strong>
+            <p>Rispapper, morot, gurka, cashewnötter, picklad rödlök, grillad kycklingfilé, glasnudlar, grönsallad, koriander och mynta.</p>
+          </div>
+          <img  class="matBild" src="https://www.mcdonalds.com.sg/sites/default/files/2023-02/9pc%20McNuggets_0.png" alt="kycklingrulle">
+          <div class="plus-button">+</div>
+        </div>
+  
+        <div class="menu-item">
+          <div class="menu-details">
+            <h3>Kycklingrulle</h3>
+            <strong>140kr</strong>
+            <p>Rispapper, morot, gurka, cashewnötter, picklad rödlök, grillad kycklingfilé, glasnudlar, grönsallad, koriander och mynta.</p>
+          </div>
+          <img  class="matBild" src="https://www.mcdonalds.com.sg/sites/default/files/2023-02/9pc%20McNuggets_0.png" alt="kycklingrulle">
+          <div class="plus-button">+</div>
+        </div>
+  
+        <div class="menu-item">
+          <div class="menu-details">
+            <h3>Kycklingrulle</h3>
+            <strong>140kr</strong>
+            <p>Rispapper, morot, gurka, cashewnötter, picklad rödlök, grillad kycklingfilé, glasnudlar, grönsallad, koriander och mynta.</p>
+          </div>
+          <img class="matBild" src="https://www.mcdonalds.com.sg/sites/default/files/2023-02/9pc%20McNuggets_0.png" alt="kycklingrulle">
+          <div class="plus-button">+</div>
+        </div>
+      </div>
+
+      <div id="kyckling">
+       </div>
+      <div class="chickenMeat">
+        <p class="chickenMeatText">Kyckling</p>
+      </div>
+      <div class="menu-grid">
+      
+        <div class="menu-item">
+          <div class="menu-details">
+            <h3>Kycklingrulle</h3>
+            <strong>140kr</strong>
+            <p>Rispapper, morot, gurka, cashewnötter, picklad rödlök, grillad kycklingfilé, glasnudlar, grönsallad, koriander och mynta.</p>
+          </div>
+          <img  class="matBild" src="https://www.mcdonalds.com.sg/sites/default/files/2023-02/9pc%20McNuggets_0.png" alt="kycklingrulle">
+          <div class="plus-button">+</div>
+        </div>
+  
+        <div class="menu-item">
+          <div class="menu-details">
+            <h3>Kycklingrulle</h3>
+            <strong>140kr</strong>
+            <p>Rispapper, morot, gurka, cashewnötter, picklad rödlök, grillad kycklingfilé, glasnudlar, grönsallad, koriander och mynta.</p>
+          </div>
+          <img  class="matBild" src="https://www.mcdonalds.com.sg/sites/default/files/2023-02/9pc%20McNuggets_0.png" alt="kycklingrulle">
+          <div class="plus-button">+</div>
+        </div>
+  
+        <div class="menu-item">
+          <div class="menu-details">
+            <h3>Kycklingrulle</h3>
+            <strong>140kr</strong>
+            <p>Rispapper, morot, gurka, cashewnötter, picklad rödlök, grillad kycklingfilé, glasnudlar, grönsallad, koriander och mynta.</p>
+          </div>
+          <img class="matBild" src="https://www.mcdonalds.com.sg/sites/default/files/2023-02/9pc%20McNuggets_0.png" alt="kycklingrulle">
+          <div class="plus-button">+</div>
+        </div>
+      </div>
+
+
+      <div id="vegetarisk">
+        <div class="vegetarian">
+          <p class="vegetarianText">Vegetarisk</p>
+        </div>
+        <div class="menu-grid">     
+          <div class="menu-item">
+            <div class="menu-details">
+              <h3>Kycklingrulle</h3>
+              <strong>140kr</strong>
+              <p>Rispapper, morot, gurka, cashewnötter, picklad rödlök, grillad kycklingfilé, glasnudlar, grönsallad, koriander och mynta.</p>
+            </div>
+            <img  class="matBild" src="https://www.mcdonalds.com.sg/sites/default/files/2023-02/9pc%20McNuggets_0.png" alt="kycklingrulle">
+            <div class="plus-button">+</div>
+          </div>
+    
+          <div class="menu-item">
+            <div class="menu-details">
+              <h3>Kycklingrulle</h3>
+              <strong>140kr</strong>
+              <p>Rispapper, morot, gurka, cashewnötter, picklad rödlök, grillad kycklingfilé, glasnudlar, grönsallad, koriander och mynta.</p>
+            </div>
+            <img  class="matBild" src="https://www.mcdonalds.com.sg/sites/default/files/2023-02/9pc%20McNuggets_0.png" alt="kycklingrulle">
+            <div class="plus-button">+</div>
+          </div>
+    
+          <div class="menu-item">
+            <div class="menu-details">
+              <h3>Kycklingrulle</h3>
+              <strong>140kr</strong>
+              <p>Rispapper, morot, gurka, cashewnötter, picklad rödlök, grillad kycklingfilé, glasnudlar, grönsallad, koriander och mynta.</p>
+            </div>
+            <img class="matBild" src="https://www.mcdonalds.com.sg/sites/default/files/2023-02/9pc%20McNuggets_0.png" alt="kycklingrulle">
+            <div class="plus-button">+</div>
+          </div>
+        </div>
+  
+
+    </div>
 </body>
 </html>
