@@ -4,6 +4,16 @@ CREATE TABLE users (
     email VARCHAR(255)
 );
 
+CREATE TABLE meals (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    image_path VARCHAR(500)
+);
+
+
+
 CREATE TABLE balances (
     balance_id INT PRIMARY KEY,
     user_id INT,
