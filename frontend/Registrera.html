@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registrera dig - Ät.se</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #00d6ff;
+    }
+    .form-container {
+      margin-top: 100px;
+    }
+    .btn-custom {
+      background-color: #007bff;
+      color: white;
+      border-radius: 20px;
+      padding: 10px 30px;
+    }
+    .header-buttons {
+      margin-top: 10px;
+    }
+    .btn-top {
+      background-color: #00d6ff;
+      border: 2px solid black;
+      border-radius: 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .logo {
+      height: 40px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light d-flex justify-content-between px-3">
+  <div class="d-flex align-items-center">
+    <img src="" class="logo" alt="Logo">
+    <span class="navbar-brand mb-0 h1">Ät.se</span>
+    <button class="btn btn-top">Om oss</button>
+  </div>
+  <div class="header-buttons">
+    <button class="btn btn-top">Logga in</button>
+    <button class="btn btn-top">Tillbaka</button>
+  </div>
+</nav>
+
+<div class="container d-flex justify-content-center">
+  <div class="form-container text-center">
+    <h2><strong>Välkommen!</strong></h2>
+    <p>Registrera dig hos oss på Ät.se</p>
+    <form>
+      <div class="mb-3">
+        <input type="email" class="form-control rounded-pill" placeholder="E-post">
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control rounded-pill" placeholder="Lösenord">
+      </div>
+      <div class="mb-3 d-flex align-items-center">
+        <img src="https://flagcdn.com/w40/se.png" width="30" class="me-2" alt="Swedish flag"> <!-- Svenska flaggan -->
+        <input type="text" class="form-control rounded-pill" placeholder="+46">
+      </div>
+      <button type="submit" class="btn btn-custom">Registrera dig</button>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
