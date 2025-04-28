@@ -1,1 +1,99 @@
-
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #00cfff;
+  }
+  
+  .top-bar {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    font-weight: bold;
+  }
+  
+  .about-btn, .back-btn {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .back-btn {
+    background-color: #00cfff;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .login-container {
+    max-width: 300px;
+    margin: 60px auto;
+    background: #00cfff;
+    text-align: center;
+    color: white;
+  }
+  
+  .login-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  .subtext {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .google {
+    background-color: white;
+    color: #555;
+  }
+  
+  .facebook {
+    background-color: #1877f2;
+    color: white;
+  }
+  
+  .apple {
+    background-color: black;
+    color: white;
+  }
+  
+  .divider {
+    margin: 20px 0 10px;
+    font-style: italic;
+  }
+  
+  .email-input {
+    padding: 10px;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 20px;
+  }
+  
+  .register {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .btn i {
+    margin-right: 10px;
+    font-size: 1.2em;
+    vertical-align: middle;
+  }
+  
