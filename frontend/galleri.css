@@ -108,6 +108,16 @@ body {
     display: flex;
   }
 
+  .deal1:hover {
+    transform: scale(1.05);
+  }
+  .deal2:hover {
+    transform: scale(1.05);
+  }
+  .deal3:hover {
+    transform: scale(1.05);
+  }
+
   .rest {
     padding: 40px 20px;
   }
