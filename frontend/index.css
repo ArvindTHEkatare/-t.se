@@ -4,67 +4,67 @@ body {
   }
 /*Header*/ 
   
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 10px;
-    background-color: rgb(255, 254, 254);
-  }
-  
-  .leftsection {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    width: 24px;
-    margin-right: 8px;
-  }
-  
-  .site {
-    margin-right: 10px;
-  }
-  
-  .omoss {
-    border: 1px solid black;
-    background-color: #c2c2c2;
-    padding: 5px 10px;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-  
-  .logincart {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .login {
-    background-color: #42d9f4;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 20px;
-    cursor: pointer;
-    border: 1px solid black;
-  }
-  .register {
-    background-color: #3dc5dd;
-    border: none;
-    padding: 6px 14px;
-    border-radius: 20px;
-    cursor: pointer;
-    border: 1px solid black;
-  }
-  
-  .cart-icon {
-    width: 24px;
-    cursor: pointer;
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: rgb(255, 254, 254);
+}
 
-  button:hover {
-    transform: scale(1.05);
-  }
+.leftsection {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 24px;
+  margin-right: 8px;
+}
+
+.site {
+  margin-right: 10px;
+}
+
+.omoss {
+  border: 1px solid black;
+  background-color: #42d9f4;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.logincart {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login {
+  background-color: #42d9f4;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+.register {
+  background-color: #3dc5dd;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.cart-icon {
+  width: 24px;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
 /*End of header*/
 
 /*Slogan*/
@@ -72,8 +72,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    margin-top: 15%;
+    height: 30px;
+    margin-top: 150px;
   }
 
 
@@ -82,17 +82,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 15%;
+    margin-top: 100px;
     width: 100%;
-    height: 100%;
+    height: 150px;
   }
 
   .leveransadress {
     align-items: center;
     justify-content: left;
     display: flex;
-    width: 600px;
-    height: 35px;
+    width: 700px;
+    height: 60px;
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
   }
@@ -105,17 +105,16 @@ body {
   }
 
   .gps{
-    height: 20px;
+    height: 30px;
     border-radius: 10px;
   }
 
 /*Moving returuant logo (keyframes)*/
   .slider {
-    position: fixed;
     bottom: 0;
     width: 100%;
     height: 100px;
-    margin-bottom: 20%;
+    margin-top: 200px;
     overflow: hidden;
   }
   
@@ -139,6 +138,31 @@ body {
       transform: translateX(-50%);
     }
   }
+
+  .bottomsection {
+    margin-top: 500px;
+    height: 200px;
+    background-color: black;
+    justify-content: center;
+  }
+
+  .row {
+    color: white;
+    justify-content: center;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .col1 {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .col2 {
+    align-items: center;
+    justify-content: center;
+  }
+
 
 
 
