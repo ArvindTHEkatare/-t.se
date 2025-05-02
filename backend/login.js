@@ -13,13 +13,21 @@ app.use(express.static('public'));
 app.use(express.json());
 
 
-app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  if (username === user.username && password === user.password) {
-    res.json({ message: 'Inloggning lyckades!' });
-  } else {
-    res.status(401).json({ message: 'Fel användarnamn eller lösenord' });
-  }
-});
+app.get('/login', async (req,res) =>{
+    res.render("login.ejs",{fel_meddelande: null});
+})
 
+app.post('/login', async (req, res) => {
+   
+    const admin_name = req.body.admin_name;
+    const password = req.body.password;
+
+    if (admin_name === "admin" && password === "12345") {
+        res.redirect('/admin');
+    } else {
+        console.log("Fel lösenord eller användarnamn!");
+        
+        res.render("login.ejs", {fel_meddelande:"Fel lösenord eller användarnamn!"});
+    }
+}); 
 app.listen(PORT, () => console.log(`Servern körs på http://localhost:${PORT}`));
