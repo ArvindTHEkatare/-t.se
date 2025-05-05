@@ -1,8 +1,8 @@
-body {
+  body {
     margin: 0;
     background-color: #00D4FF;
   }
-/*Header*/ 
+  /*Header*/ 
   
   .header {
     display: flex;
@@ -98,6 +98,7 @@ body {
     display: flex;
     padding: 20px;
     gap: 100px;
+
   }
 
   .deal1,.deal2, .deal3 {
@@ -105,7 +106,10 @@ body {
     width: 250px;
     height: 150px;
     border-radius: 20px;
-    display: flex;
+    border-width: 20px;
+    border: solid rgb(0, 114, 129);
+    justify-content: center;
+    display: inline;
   }
 
   .deal1:hover {
@@ -145,4 +149,27 @@ body {
     margin-top: 10px;
     font-weight: bold;
     color: #333;
+  }
+
+  .bottomsection {
+    margin-top: 500px;
+    height: 200px;
+    background-color: black;
+    justify-content: center;
+  }
+.row {
+    color: white;
+    justify-content: center;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+.col1 {
+    align-items: center;
+    justify-content: center;
+  }
+
+.col2 {
+    align-items: center;
+    justify-content: center;
   }
