@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beställning - Åt.se</title>
+  <title>Beställning - Ät.se</title>
   <link rel="stylesheet" href="kundvagn.css" />
 </head>
 <body>
+  <!-- huvuddel med logga in, om oss, inloggning, tillbaka och kundvagn -->
   <header>
-    <div class="header-left">Åt.se</div>
+    <div class="header-left">Ät.se</div>
     <button class="btn-light">Om oss</button>
     <div class="header-right">
       <button class="btn-blue">Logga in</button>
@@ -20,6 +21,8 @@
   <main>
     <h2>Din beställning</h2>
 
+    <!-- beställningsruta med bild och info om maträtt -->
+
     <div class="order-box">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYXjcSrGRmEhTtQCyjfq2vW-KqdblI0SNuPoj22YvwCG46xs9Gqf5FPgLAL58H1fJ_miHvUUrSvzQIgIshu1-5cSTGuVJg6K8wm7Ny3UB21jzWydNwPmRO3gXuP9W_V_yOY7zeiWNPu42V/s1600/kycklingrulle+kycklingkebaba+kycklingkebabrulle.jpg" alt="Kycklingrulle" />
       <div class="order-info">
@@ -30,25 +33,30 @@
       </div>
     </div>
 
+    <!-- formulär för kunduppgifter och betalning -->
     <form class="form">
+      <!-- fält för namn -->
       <div class="name-fields">
         <input type="text" placeholder="Förnamn" />
         <input type="text" placeholder="Efternamn" />
       </div>
-
+      <!-- telefonnummer med landskod -->
       <div class="phone-field">
         <span class="flag">🇸🇪 +46</span>
         <input type="text" placeholder="Telefonnummer" />
       </div>
 
+      <!-- fält för email -->
       <input type="email" placeholder="E-post" class="email" />
 
+      <!-- val av betalningsmetod -->
       <div class="payment-section">
         <label><input type="radio" name="payment" /> Kortbetalning (Visa, Mastercard)</label>
         <label><input type="radio" name="payment" /> Swish</label>
         <label><input type="radio" name="payment" /> Klarna</label>
       </div>
 
+      <!-- knapp för att slutföra beställningen -->
       <button type="submit" class="submit-btn">Slutför beställning</button>
     </form>
   </main>
