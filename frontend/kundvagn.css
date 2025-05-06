@@ -1,136 +1,156 @@
+/* sidans stil */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #00cfff;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    align-items: center;
-    background-color: white;
-  }
-  
-  .header-left {
-    font-weight: bold;
-    font-size: 20px;
-  }
-  
-  .header-right .btn-blue,
-  .btn-light {
-    margin-left: 10px;
-    padding: 8px 15px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .btn-blue {
-    background-color: #00aaff;
-    color: white;
-  }
-  
-  .btn-light {
-    background-color: #f0f0f0;
-  }
-  
-  .cart-icon {
-    font-size: 20px;
-    margin-left: 10px;
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
-  .order-box {
-    background-color: white;
-    margin: 0 auto 20px;
-    padding: 10px;
-    border-radius: 15px;
-    width: 300px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .order-box img {
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
-    margin-right: 10px;
-  }
-  
-  .order-info {
-    text-align: left;
-  }
-  
-  .quantity {
-    width: 50px;
-    margin-top: 5px;
-  }
-  
-  .form {
-    max-width: 350px;
-    margin: 0 auto;
-    text-align: left;
-  }
-  
-  .name-fields {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .name-fields input,
-  .phone-field input,
-  .email {
-    flex: 1;
-    padding: 8px;
-    border-radius: 20px;
-    border: none;
-  }
-  
-  .phone-field {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .flag {
-    background-color: white;
-    padding: 8px 12px;
-    border-radius: 20px;
-  }
-  
-  .email {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  
-  .payment-section {
-    background-color: white;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-  }
-  
-  .payment-section label {
-    display: block;
-    margin: 5px 0;
-  }
-  
-  .submit-btn {
-    background-color: #0078ff;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin-left: 75px;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #00cfff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* toppmeny */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
+  background-color: white;
+}
+
+/* logga */
+.header-left {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* knappar i headern */
+.header-right .btn-blue,
+.btn-light {
+  margin-left: 10px;
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* blå knapp */
+.btn-blue {
+  background-color: #00aaff;
+  color: white;
+}
+
+/* grå knapp */
+.btn-light {
+  background-color: #f0f0f0;
+}
+
+/* kundvagnsikon */
+.cart-icon {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* innehåll */
+main {
+  padding: 20px;
+}
+
+/* ruta med matbeställning */
+.order-box {
+  background-color: white;
+  margin: 0 auto 20px;
+  padding: 10px;
+  border-radius: 15px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+}
+
+/* bild på maten */
+.order-box img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+/* text om maten */
+.order-info {
+  text-align: left;
+}
+
+/* antal */
+.quantity {
+  width: 50px;
+  margin-top: 5px;
+}
+
+/* hela formuläret */
+.form {
+  max-width: 350px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* namn-fält */
+.name-fields {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* alla textfält */
+.name-fields input,
+.phone-field input,
+.email {
+  flex: 1;
+  padding: 8px;
+  border-radius: 20px;
+  border: none;
+}
+
+/* telefon-fält */
+.phone-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* landskod */
+.flag {
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+}
+
+/* e-postfält */
+.email {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* betalningsval */
+.payment-section {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+/* varje betalningsalternativ */
+.payment-section label {
+  display: block;
+  margin: 5px 0;
+}
+
+/* skicka-knappen */
+.submit-btn {
+  background-color: #0078ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 75px;
+}
