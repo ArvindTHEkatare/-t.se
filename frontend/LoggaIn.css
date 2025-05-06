@@ -1,9 +1,11 @@
+/* bakgrundsfärg för sidan */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #00cfff;
   }
   
+  /* toppmeny med vit bakgrund */
   .top-bar {
     background-color: white;
     display: flex;
@@ -12,10 +14,12 @@ body {
     padding: 10px 20px;
   }
   
+  /* fet text med loggan */
   .logo {
     font-weight: bold;
   }
   
+  /* stil för knapparna i toppmenyn */
   .about-btn, .back-btn {
     border: none;
     padding: 6px 12px;
@@ -24,13 +28,15 @@ body {
     margin-left: 10px;
     cursor: pointer;
   }
-  
+
+  /* speciell stil för tillbaka knappen */
   .back-btn {
     background-color: #00cfff;
     color: black;
     font-weight: bold;
   }
   
+  /* ruta för inloggning */
   .login-container {
     max-width: 300px;
     margin: 60px auto;
@@ -39,15 +45,18 @@ body {
     color: white;
   }
   
+  /* rubrik för inloggninsrutan */
   .login-container h2 {
     margin-bottom: 10px;
   }
   
+  /* liten text med underrubrik */
   .subtext {
     font-size: 0.9em;
     margin-bottom: 20px;
   }
   
+  /* gemensam stil för knapparna */
   .btn {
     display: block;
     width: 100%;
@@ -59,26 +68,31 @@ body {
     cursor: pointer;
   }
   
+  /* knapp för google login */
   .google {
     background-color: white;
     color: #555;
   }
   
+  /* knapp för facebook login */
   .facebook {
     background-color: #1877f2;
     color: white;
   }
   
+  /* knapp för apple login */
   .apple {
     background-color: black;
     color: white;
   }
   
+  /* text mellan knappar och email */
   .divider {
     margin: 20px 0 10px;
     font-style: italic;
   }
   
+  /* fält för email */
   .email-input {
     padding: 10px;
     width: 100%;
@@ -87,13 +101,18 @@ body {
     margin-bottom: 20px;
   }
   
+  /* länk för att registrera sig */
   .register {
     text-decoration: underline;
     cursor: pointer;
   }
+
+  /* ikon i knappen */
   .btn i {
     margin-right: 10px;
     font-size: 1.2em;
     vertical-align: middle;
   }
+  
+  
   
