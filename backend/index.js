@@ -8,7 +8,7 @@ const port = 3000;
 const db = new pg.Pool({
     user: 'postgres',
     host: 'localhost',
-    database: 'guestbook',
+    database: 'onlinematleverans',
     password: '12345',
     port: 5432,
 })
@@ -18,8 +18,29 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    console.log("Mottagen input:", req.body);
+    try {
+        const result = await db.query(
+            'SELECT * FROM users WHERE email = $1 AND password = $2',
+            [email, password]
+        );
+        console.log(result.rows);
+        if (result.rows.length > 0) {
+            res.send('Inloggning lyckades!');
+        } else {
+            res.send('Fel e-post eller lösenord.');
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Serverfel');
+    }
+});
 
 
 app.listen(port, () => {
-    console.log('Lyssnar på port ${port}');
-});
+    console.log(`Lyssnar på port ${port}`);
+    ;
+})
+
