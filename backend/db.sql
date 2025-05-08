@@ -57,6 +57,22 @@ VALUES
     ('Chicken Royale', 'En extra lång burgare med saftig, panerad kycklingfilé, färsk sallad och majonnäs.', 89, ''),    
     ('Crispy Chicken', 'En friterad kycklingburgare med krispig sallad, tomater och dressing', 25.00, '');
 
+INSERT INTO meals_PizzaHut (name, description, price, image_path)
+VALUES 
+    ('Pepperoni Lovers', 'Tomatsås, Mozzarella, Pepperoni', 109, ''),
+    meal_id, 
+    ('Pulled Beef BBQ', '', 119, ''),
+    ('Margherita', 'Vår panerade fiskburgare med sallad och majonnäs.', 40, ''),
+    ('Caesar Salad', 'Caesarsallad med kyckling, ost, krutonger, bulgur och romansallad', 50, ''),
+    ('Halloumi King', 'Äkta Halloumi från Cypern och i ett potatisbröd. Komplett med fräsch sallad, tomat, lök och vegansk majonnäs.', 60, ''),
+    ('Gourmet Chicken Chipotle', 'En rökig dröm! Prova Gourmet Chipotle – en krispig, friterat kycklingburgare i fluffigt bröd. Med kryddig Pepper Jack cheese, bacon, fräsch sallad och skivad tomat. ', 90, ''),
+    ('Flexi Whopper', 'Precis som en Whopper, men med en bas av växter! Krämig vegansk majonnäs, ketchup, sallad, tomat, saltgurka och lök.', 80, ''),
+    ('Halloumi King Jr.', 'Äkta Halloumi från Cypern. Komplett med fräsch sallad, tomat och majonnäs.', 30, ''),
+    ('Chicken Royale', 'En extra lång burgare med saftig, panerad kycklingfilé, färsk sallad och majonnäs.', 89, ''),    
+    ('Crispy Chicken', 'En friterad kycklingburgare med krispig sallad, tomater och dressing', 25.00, '');
+
+
+
 
 
 CREATE TABLE orders (
