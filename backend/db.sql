@@ -12,6 +12,22 @@ CREATE TABLE meals_McDonalds (
     image_path VARCHAR(500)
 );
 
+CREATE TABLE meals_BurgerKing (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    image_path VARCHAR(500)
+);
+
+
+CREATE TABLE balances (
+    balance_id INT PRIMARY KEY,
+    user_id INT,
+    balance DECIMAL(10, 2),
+    FOREIGN KEY(user_id) REFERENCES users(user_id)
+);
+
 INSERT INTO meals_McDonalds (name, description, price, image_path)
 VALUES 
     ('9 Chicken Nuggets', 'Våra goda Chicken McNuggets består alltid av kycklingbröstfilé med en krispig gyllenbrun panering.', 140.00, ''),
@@ -27,13 +43,6 @@ VALUES
     ('Side Salad', 'Nylagad sallad med sallad, gurka, skivad tomat och rödlök. Närings- och allergeninformationen inkluderar inte dressing.', 50.00, '');
 
 
-CREATE TABLE meals_BurgerKing (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    price DECIMAL(10, 2) NOT NULL,
-    image_path VARCHAR(500)
-);
 
 INSERT INTO meals_BurgerKing (name, description, price, image_path)
 VALUES 
@@ -49,9 +58,12 @@ VALUES
     ('Crispy Chicken', 'En friterad kycklingburgare med krispig sallad, tomater och dressing', 25.00, '');
 
 
-CREATE TABLE balances (
-    balance_id INT PRIMARY KEY,
-    user_id INT,
-    balance DECIMAL(10, 2),
-    FOREIGN KEY(user_id) REFERENCES users(user_id)
+
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    meal_id, 
+    quanitity INTEGER,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
