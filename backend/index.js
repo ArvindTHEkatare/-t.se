@@ -18,16 +18,27 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
+
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
-    console.log("Mottagen input:", req.body);
+
     try {
+
         const result = await db.query(
-            'SELECT * FROM users WHERE email = $1 AND password = $2',
-            [email, password]
+            'SELECT * FROM users WHERE email = $1',
+            [email]
         );
-        console.log(result.rows);
-        if (result.rows.length > 0) {
+
+        if (result.rows.length === 0) {
+            return res.send('Fel e-post eller lösenord.');
+        }
+
+        const user = result.rows[0];
+
+
+        const match = await bcrypt.compare(password, user.password);
+
+        if (match) {
             res.send('Inloggning lyckades!');
         } else {
             res.send('Fel e-post eller lösenord.');
