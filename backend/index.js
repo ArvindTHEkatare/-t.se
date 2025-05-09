@@ -49,6 +49,24 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.post('/register', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+      const hashedPassword = await bcrypt.hash(password, 10);
+  
+      const result = await db.query(
+        'INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *',
+        [email, hashedPassword]
+      );
+  
+      console.log('Registrerad användare:', result.rows[0]);
+      res.send('Registrering lyckades!');
+    } catch (err) {
+      console.error('Fel vid registrering:', err);
+      res.status(500).send('Serverfel vid registrering');
+    }
+});
+
 
 app.listen(port, () => {
     console.log(`Lyssnar på port ${port}`);
