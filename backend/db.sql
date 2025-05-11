@@ -73,13 +73,15 @@ VALUES
 
 
 
-
-
-CREATE TABLE orders (
+CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users(id),
-    meal_id, 
-    quanitity INTEGER,
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    user_id INT,
+    meal_id INT,
+    quantity INT,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    phone_number VARCHAR(20),
+    email VARCHAR(100)
 );
 
