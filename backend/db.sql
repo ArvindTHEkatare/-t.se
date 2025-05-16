@@ -71,6 +71,24 @@ VALUES
     ('Chicken Royale', 'En extra lång burgare med saftig, panerad kycklingfilé, färsk sallad och majonnäs.', 89, ''),    
     ('Crispy Chicken', 'En friterad kycklingburgare med krispig sallad, tomater och dressing', 25.00, '');
 
+INSERT INTO meals_Sonnegardens (name, description, price, image_path) VALUES
+
+('Kyckling Deluxe', 'Tomatsås, ost, grillad kyckling, rödlök, färsk paprika och vitlökssås.', 105.00, ''),
+('BBQ Chicken Pizza', 'BBQ-sås, kycklingbröst, rödlök, mozzarella och färsk koriander.', 115.00, ''),
+('Kyckling & Bacon', 'Tomatsås, ost, grillad kyckling, knaperstekt bacon och champinjoner.', 110.00, ''),
+
+('Köttälskaren', 'Tomatsås, ost, köttfärs, pepperoni, bacon och jalapeños.', 120.00, ''),
+('Taco Pizza', 'Tacokryddad köttfärs, ost, tomat, majs, nachos och vitlökssås.', 115.00, ''),
+('Biff & Bearnaise', 'Tomatsås, mozzarella, oxfilébitar, paprika och bearnaisesås efter gräddning.', 125.00, ''),
+
+
+('Vegetariana', 'Tomatsås, mozzarella, champinjoner, paprika, rödlök och oliver.', 95.00, ''),
+('Grönkål & Feta', 'Tomatsås, grönkål, fetaost, rödlök, valnötter och honung.', 100.00, ''),
+('Vegan Feast', 'Vegansk ost, tomatsås, zucchini, aubergine, paprika och ruccola.', 105.00, ''),
+
+('Husets Sallad', 'Blandsallad med gurka, tomat, rödlök och husets dressing.', 40.00, ''),
+('Chokladmousse', 'Luftig chokladmousse toppad med vispgrädde och riven choklad.', 35.00, ''),
+('Läsk 33cl', 'Välj mellan Coca-Cola, Fanta eller Sprite. Serveras kall.', 25.00, '');
 
 
 CREATE TABLE orders (
