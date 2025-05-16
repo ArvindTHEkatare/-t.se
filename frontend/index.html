@@ -38,12 +38,13 @@
     <!--Söklådan för adress-->
     <div class="middlesection">
         <div class="leveransadress">
-            <div class="textadress">
-                <img src="../images/free-location-icon-2952-thumb.png" alt="gps" class="gps">
-                <input type="text" id="input" placeholder="Ange Leveransadress">
-            </div>
+          <div class="textadress" style="position: relative;">
+            <img src="../images/free-location-icon-2952-thumb.png" alt="gps" class="gps">
+            <input type="text" id="searchInput" placeholder="Ange Leveransadress" oninput="filterAddresses()" />
+            <ul id="dropdownList" class="dropdown"></ul>
+          </div>
         </div>
-    </div>
+      </div>      
     <!--kod för keyframe-->
     <div class="slider">
         <div class="slide-track">
@@ -94,6 +95,6 @@
             </div>
         </div>
 </div>
-<script src="../backend/index.js"></script>
+<script src="../backend/indexdropdown.js"></script>
 </body>
 </html>
