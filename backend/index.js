@@ -18,7 +18,7 @@
         user: 'postgres',
         host: 'localhost',
         database: 'onlinematleverans',
-        password: 'etmyyjy5',
+        password: '',
         port: 5432,
     });
 
