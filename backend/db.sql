@@ -20,6 +20,21 @@ CREATE TABLE meals_BurgerKing (
     image_path VARCHAR(500)
 );
 
+CREATE TABLE meals_sannegardens (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    image_path VARCHAR(500)
+);
+
+CREATE TABLE meals_max (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    image_path VARCHAR(500)
+);
 
 CREATE TABLE balances (
     balance_id INT PRIMARY KEY,
@@ -71,7 +86,7 @@ VALUES
     ('Chicken Royale', 'En extra lång burgare med saftig, panerad kycklingfilé, färsk sallad och majonnäs.', 89, ''),    
     ('Crispy Chicken', 'En friterad kycklingburgare med krispig sallad, tomater och dressing', 25.00, '');
 
-INSERT INTO meals_Sonnegardens (name, description, price, image_path) VALUES
+INSERT INTO meals_sannegardens (name, description, price, image_path) VALUES
 
 ('Kyckling Deluxe', 'Tomatsås, ost, grillad kyckling, rödlök, färsk paprika och vitlökssås.', 105.00, ''),
 ('BBQ Chicken Pizza', 'BBQ-sås, kycklingbröst, rödlök, mozzarella och färsk koriander.', 115.00, ''),
@@ -89,6 +104,25 @@ INSERT INTO meals_Sonnegardens (name, description, price, image_path) VALUES
 ('Husets Sallad', 'Blandsallad med gurka, tomat, rödlök och husets dressing.', 40.00, ''),
 ('Chokladmousse', 'Luftig chokladmousse toppad med vispgrädde och riven choklad.', 35.00, ''),
 ('Läsk 33cl', 'Välj mellan Coca-Cola, Fanta eller Sprite. Serveras kall.', 25.00, '');
+
+INSERT INTO meals_max (name, description, price, image_path) VALUES
+('Originalmål', 'Originalburgare med nötkött, sallad, tomat, ost, dressing. Serveras med pommes och dryck.', 89.00, ''),
+('Chili ’n’ Cheese', 'Nötköttsburgare med jalapeños, ost och het dressing.', 99.00, ''),
+('Friscoburgare', 'Nötkött i friscobröd med ost, tomat, sallad och majonnäs.', 95.00, ''),
+
+('Delifresh Kycklingmål', 'Grillad kycklingburgare med sallad, tomat och lätt dressing. Inkl. pommes och dryck.', 92.00, ''),
+('Crispy Kyckling', 'Friterad kycklingfilé med majonnäs, isbergssallad och pickles.', 95.00, ''),
+('Spicy Kyckling', 'Kryddstark kycklingburgare med jalapeños och het sås.', 98.00, ''),
+
+('Green Burger', 'Vegetarisk bönburgare med sallad, rödlök, picklad gurka och veganmajonnäs.', 89.00, ''),
+('Halloumiburgare', 'Friterad halloumi med sallad, tomat och mild dressing.', 89.00, ''),
+('Vegansk Nuggets Meal', 'Sojabaserade nuggets med pommes och dryck.', 85.00, ''),
+
+('Lyxshake Choklad', 'Krämig chokladmilkshake gjord på svensk mjölk och glass.', 39.00, ''),
+('Liten pommes', 'Krispig friterad potatis med MAX originalkrydda.', 25.00, ''),
+('Dipp BBQ', 'Rökig barbecuesås, perfekt till pommes eller nuggets.', 10.00, ''),
+('Stor Läsk 50cl', 'Välj mellan Coca-Cola, Fanta eller Sprite. Serveras kall.', 29.00, '');
+
 
 
 CREATE TABLE orders (
