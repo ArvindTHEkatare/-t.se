@@ -36,6 +36,14 @@ CREATE TABLE meals_max (
     image_path VARCHAR(500)
 );
 
+CREATE TABLE meals_thaimat (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    image_path VARCHAR(500)
+);
+
 CREATE TABLE balances (
     balance_id INT PRIMARY KEY,
     user_id INT,
@@ -124,6 +132,21 @@ INSERT INTO meals_max (name, description, price, image_path) VALUES
 ('Stor Läsk 50cl', 'Välj mellan Coca-Cola, Fanta eller Sprite. Serveras kall.', 29.00, '');
 
 
+INSERT INTO meals_thaimat (name, description, price, image_path) VALUES
+
+('Pad Namman Hoi Nöt', 'Wokad biff med ostronsås, broccoli, morötter och paprika.', 119.00, ''),
+('Nöt Massaman Curry', 'Thailändsk massaman curry med biff, kokosmjölk, potatis och jordnötter.', 125.00, ''),
+('Nötgryta med Basilika', 'Strimlad biff med thaibasilika, chili och vitlök.', 120.00, ''),
+
+
+('Vegetarisk Pad Thai', 'Stekta risnudlar med tofu, ägg, grönsaker och jordnötter.', 109.00, ''),
+('Grönsakswok med Cashewnötter', 'Blandade grönsaker wokade med cashewnötter i mild soja- och chilissås.', 110.00, ''),
+('Röd Curry Vegan', 'Vegansk curry med kokosmjölk, tofu, bambuskott, paprika och zucchini.', 115.00, ''),
+
+
+('Kyckling Panang Curry', 'Krämig panangcurry med kyckling, kokosmjölk och limeblad.', 119.00, ''),
+('Gai Pad Med Mamuang', 'Wokad kyckling med cashewnötter, lök, paprika och torkad chili.', 120.00, ''),
+('Kyckling Satay', 'Grillade kycklingspett med jordnötssås och jasminris.', 125.00, '');
 
 CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
