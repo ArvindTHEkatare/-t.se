@@ -7,7 +7,9 @@
     import bcrypt from 'bcrypt';
     import nodemailer from 'nodemailer';
     import dotenv from 'dotenv';
+    import cookieSession from 'cookie-session';
     import fs from 'fs';
+
 
     //anslutning till dotenv
     dotenv.config();
@@ -18,7 +20,7 @@
         user: 'postgres',
         host: 'localhost',
         database: 'onlinematleverans',
-        password: '',
+        password: 'etmyyjy5',
         port: 5432,
     });
 
@@ -36,10 +38,32 @@
     app.get('/produkt', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'produkt.html'));
     });
+
+    app.get('/burgerKingMeny', (req, res) => {
+        res.sendFile(path.join(__dirname, 'public', 'burgerKingMeny.html'));
+    });
+
+    app.get('/sannegardensMeny', (req, res) => {
+        res.sendFile(path.join(__dirname, 'public', 'sånnegardensMeny.html'));
+    });
+
+    app.get('/maxMeny', (req, res) => {
+        res.sendFile(path.join(__dirname, 'public', 'maxMeny.html'));
+    });
+
+
     //för kundvagn.html sidan:
     app.get('/kundvagn', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'kundvagn.html'));
     });
+
+
+
+    app.get('/thaimat', (req, res) => {
+        res.sendFile(path.join(__dirname, 'public', 'thaimatMeny.html'));
+        });
+    
+        
     //för confirmationn.html sidan:
     app.get('/confirmation', (req, res) => {
         res.sendFile(path.join(__dirname, 'public', 'confirmation.html'));
@@ -48,40 +72,37 @@
 
     app.use(express.static(path.join(__dirname, 'public')));
 
-    //post for /login delen
     app.post('/login', async (req, res) => {
-        //sparar email och password då, från email och password respektiv fält
         const { email, password } = req.body;
-        //en try catch, bra för just den här delen
+    
         try {
-            //sparar resultat för 'SELECT * FROM users WHERE email = $1' query från databasen (pgadmin4) 
             const result = await db.query(
                 'SELECT * FROM users WHERE email = $1',
                 [email]
             );
-            //om längden är lika med 0, det är antigen fel e post eller lösenord så returnera det.
+    
             if (result.rows.length === 0) {
                 return res.send('Fel e-post eller lösenord.');
-            } 
-            //sparar användare, och det är index 0 för result då dvs första elementet
-            const användare = result.rows[0];  
-            //använder bcrypt (säkrare omt hackers och jamför password som finns i databsen och lösenord som använder anger. om de liknar så det är sant)
+            }
+    
+            const användare = result.rows[0];
             const likna = await bcrypt.compare(password, användare.password);
-
-            //om de liknar, inloggning lyckades.
+    
             if (likna) {
-                res.send('Inloggning lyckades!');
-            //annars failade/ misslyckadesinloggning 
+                if (användare.is_admin) {
+                    res.redirect('/admin.html'); 
+                } else {
+                    res.redirect('/produkt.html'); 
+                }
             } else {
                 res.send('Fel e-post eller lösenord.');
             }
-            //om det är något oförväntat som tar plats, catch errorn.
         } catch (err) {
             console.error(err);
             res.status(500).send('Serverfel');
         }
     });
-
+    
     // det här gäller för register.html
     app.post('/register', async (req, res) => {
         //som tidigare, spara email och password som variabler (spara det som användaren matar in)
@@ -218,7 +239,63 @@
             res.status(500).send('Error vid raderande av meal');
         }
     });
-    //app listen, vilken port visa i console.log
-    app.listen(port, () => {
-        console.log(`Lyssnar på port ${port}`);
+
+    app.get('/api/burgerKingMeals', async (req, res) => {
+        //try catch
+        try {
+            //som vanligt, spara resultaten av alla meals from mcdonalds i det här fall då 
+            const result = await db.query('SELECT * FROM meals_burgerking');
+            res.json(result.rows);  
+            //vid eventuella fail
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Databas error');
+        }
     });
+
+    app.get('/api/sannegardensMeny', async (req, res) => {
+        //try catch
+        try {
+            //som vanligt, spara resultaten av alla meals from mcdonalds i det här fall då 
+            const result = await db.query('SELECT * FROM meals_sannegardens');
+            res.json(result.rows);  
+            //vid eventuella fail
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Databas error');
+        }
+    });
+
+    app.get('/api/maxMeny', async (req, res) => {
+        //try catch
+        try {
+            //som vanligt, spara resultaten av alla meals from mcdonalds i det här fall då 
+            const result = await db.query('SELECT * FROM meals_max');
+            res.json(result.rows);  
+            //vid eventuella fail
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Databas error');
+        }
+    });
+
+    app.get('/api/thaimat', async (req, res) => {
+        //try catch
+        try {
+            //som vanligt, spara resultaten av alla meals from mcdonalds i det här fall då 
+            const result = await db.query('SELECT * FROM meals_thaimat');
+            res.json(result.rows);  
+            //vid eventuella fail
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Databas error');
+        }
+    });
+
+ 
+  app.use(express.static('public'));
+  
+    
+app.listen(port, () => {
+    console.log(`Lyssnar på port ${port}`);
+ });
