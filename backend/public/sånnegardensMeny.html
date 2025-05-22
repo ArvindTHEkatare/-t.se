@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Restaurangens Namn</title>
+       
+ <style>
+ .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: rgb(255, 254, 254);
+}
+
+.leftsection {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 24px;
+  margin-right: 8px;
+}
+
+.site {
+  margin-right: 10px;
+}
+
+.omoss {
+  border: 1px solid black;
+  background-color: #c2c2c2;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.logincart {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login {
+  background-color: #42d9f4;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+.register {
+  background-color: #3dc5dd;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.cart-icon {
+  width: 24px;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+  body {
+
+    margin: 0;
+    font-family: sans-serif;
+    background: #00cfff;
+  }
+
+  #rName{
+      margin-top: 15px;
+  }
+  .container {
+    max-width: 90%;
+    margin: 20px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .header-left {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .header-left img {
+    width: 100px;
+    height: auto;
+    border-radius: 15px;
+  }
+
+  .header-info h2 {
+    margin: 0;
+  }
+
+  .map {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .mapAndOther {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    
+  }
+
+
+  .map {
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .kartaBild {
+    margin-right: 15%;
+    border-radius: 2rem;
+  }
+  .location-info {
+    margin-top: 0.3rem;
+    /* display: flex;
+    flex-direction: row; */
+    display: block;
+  }
+  .time-info {
+    margin-top: 0.3rem;
+    /* display: flex;
+    flex-direction: row; */
+  }
+
+  .locationBild,
+  .clockBild {
+    margin-right: 60px;
+    height: 10%;
+    height: 34px;
+  }
+
+  .clockBild {
+    width: 30px;
+    height: 30px;
+    margin-top: 0.5rem;
+  }
+
+  .search-and-tabs {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-left: 350px;
+
+  } 
+
+  .search-and-tabs input {
+    width: 18%;
+    position: absolute;
+    padding: 8px;
+    left: 110px;
+    border-radius: 20px;
+    border: 1px solid #FFFFFF;
+    flex: 1;
+  }
+
+  .tabs a {
+    margin: 0 10px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+  }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .menu-item {
+    background: #f7f7f7;
+    padding: 15px;
+    border-radius: 20px;
+    position: relative;
+    min-height: 140px;
+  }
+
+  .menu-details {
+    max-width: 60%;
+  }
+
+  .menu-details h3 {
+    margin: 0;
+  }
+
+  .menu-details p {
+    margin-top: 3px;
+    font-size: 12px;
+    color: #444;
+  }
+
+  .menu-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    object-fit: cover;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .plus-button {
+    font-size: 20px;
+    border: 1px dashed #aaa;
+    border-radius: 50%;
+    padding: 4px 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  @media (max-width: 768px) {
+.menu-grid {
+  grid-template-columns: 1fr;
+}
+}
+  </style>
+
+
+
+    <link rel="icon" type="image/x-icon" href="../images/image-removebg-preview.png">
+</head>
+<body>
+  <div class="header">
+    <div class="leftsection">
+        <div class="logoclick">
+            <a href="index.html"><img src="../images/image-removebg-preview.png" alt="logo" class="logo"></a>
+            <a href="index.html"><span class="site">Ät.se</span></a>
+        </div>
+    <a href="omoss.html"><button class="omoss">Om oss</button></a>
+    </div>
+    <div class="logincart">
+        <span id="balance-text">Balance: $0.00</span>
+        <a href="login.html"><button class="login">Logga In</button></a>
+        <a href="register.html"><button class="register">Registrera</button></a>
+        <a href="kundvagn.html"><img src="../images/basket-cart-icon-27.png" alt="cart" class="cart-icon"></a>
+    </div>
+</div>
+  <div class="container">
+    <div class="header">
+      <div class="header-left">
+        <img src="./images/sånnegardens-logo.jpg" alt="RestaurangensBild">
+        <div class="header-info">
+          <h2 id="rName">Sannegårdens Pizzeria</h2>
+          <p>Pizzera kedja</p>
+          <p>⭐ 4.3/5 (30+) | (icon) Mer info</p>
+        </div>
+      </div>
+
+    <div class="mapAndOther">
+      <div class="map">
+        <img class="kartaBild" src="../images/mcdonaldsKarta.png" alt="karta">
+        <div class="location-info">
+          <img class="locationBild" src="../images/free-location-icon-2952-thumb.png" alt="location bild">
+          <p>(Din address)</p>
+        <div class="time-info">
+          <img class="clockBild" src="../images/clockbild.png" alt="bild av en klocka ">
+          <p> Stänger ner Kl. 22:00</p>
+        </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    <div class="search-and-tabs">    
+      <img class="searchBild" src="../images/search-interface-symbol.png" alt="sökBild">
+      <input class="searchDel" type="text" placeholder="Sök i meny" onkeyup="filterMenu()">
+      <div class="tabs">
+        <nav>
+          <a href="#popular">Populärt</a>
+          <a href="#notkott">Nötkött</a>
+          <a href="#kyckling">Kyckling</a>
+          <a href="#vegetarisk">Vegetarisk</a>
+          <a href="#nyamaträtter">Nya maträtter!</a>
+        </nav>
+      </div>
+    </div>
+
+      <div class="menu-grid" id="menuGrid"></div>
+
+      <script>
+      fetch('/api/sannegardensMeny')
+        .then(res => res.json())
+        .then(data => {
+          const menuGrid = document.getElementById('menuGrid');
+          data.forEach(meal => {
+            const div = document.createElement('div');
+            div.className = 'menu-item';
+            div.innerHTML = `
+              <div class="menu-details">
+                <h3>${meal.name}</h3>
+                <strong>${meal.price} kr</strong>
+                <p>${meal.description}</p>
+              </div>
+              <img src="${meal.image_path || ''}" alt="${meal.name}">
+              <div class="plus-button" onclick="addToCart('${meal.name}', '${meal.price}', event)">+</div>
+            `;
+            menuGrid.appendChild(div);
+          });
+        });
+
+        function addToCart(name, price, event) {
+          let existingItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+          const existingItemIndex = existingItems.findIndex(item => item.name === name);
+
+          if (existingItemIndex > -1) {
+            existingItems[existingItemIndex].quantity += 1;
+          } else {
+            const item = {
+              name: name,
+              price: price,
+              quantity: 1
+            };
+            existingItems.push(item);
+          }
+
+          localStorage.setItem("cartItems", JSON.stringify(existingItems));
+
+          // Create confirmation message
+          const msg = document.createElement("div");
+          msg.textContent = "✓ Adderade till kundvagn";
+          msg.style.position = "absolute";
+          msg.style.background = "#4caf50";
+          msg.style.color = "white";
+          msg.style.padding = "6px 10px";
+          msg.style.borderRadius = "4px";
+          msg.style.fontSize = "14px";
+          msg.style.zIndex = "1000";
+
+          
+          const rect = event.target.getBoundingClientRect();
+          msg.style.left = `${rect.left + window.scrollX}px`;
+          msg.style.top = `${rect.bottom + window.scrollY + 5}px`; 
+
+          document.body.appendChild(msg);
+
+          setTimeout(() => msg.remove(), 1000);
+        }
+
+        </script>
+  
+    </div>
+</body>
+</html>
