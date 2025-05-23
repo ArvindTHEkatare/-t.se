@@ -91,10 +91,6 @@ button:hover {
     align-items: center;
     justify-content: left;
     display: flex;
-    width: 700px;
-    height: 60px;
-    border-radius: 20px;
-    background-color: rgb(255, 255, 255);
   }
 
   .textadress{
@@ -104,6 +100,12 @@ button:hover {
     margin-left: 10px;
     position: relative;
     width: 100%;
+  }
+
+  #input{
+    width: 600px;
+    border-radius: 20px;
+    height: 40px;
   }
   
   .dropdown {
