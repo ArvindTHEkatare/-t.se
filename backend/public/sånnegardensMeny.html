@@ -5,7 +5,18 @@
   <title>Restaurangens Namn</title>
        
  <style>
- .header {
+
+a {
+      color: black;
+
+    }
+    body {
+  margin: 0;
+  background-color: #00D4FF;
+}
+/*Header*/ 
+
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,18 +30,31 @@
 }
 
 .logo {
-  width: 24px;
+  width: 45px;
   margin-right: 8px;
 }
 
 .site {
-  margin-right: 10px;
+  display: inline-block; 
+  position: relative;
+  top: -14px; 
+  font-size: 1.25rem;
+  font-weight: italic;
+  padding-right: 1rem;
+  text-decoration: none;
+  text-shadow: 1px 3px 3px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
 }
+
+.site:hover {
+  transform: scale(1.05);
+}
+
 
 .omoss {
   border: 1px solid black;
-  background-color: #c2c2c2;
-  padding: 5px 10px;
+  background-color: #42d9f4;
+  padding: 8px 14px;
   border-radius: 20px;
   cursor: pointer;
 }
@@ -44,20 +68,29 @@
 .login {
   background-color: #42d9f4;
   border: none;
-  padding: 6px 14px;
+  padding: 5px 14px;
   border-radius: 20px;
   cursor: pointer;
   border: 1px solid black;
 }
 .register {
-  background-color: #3dc5dd;
+  background-color: #42d9f4;
   border: none;
-  padding: 6px 14px;
+  padding: 5px 14px;
   border-radius: 20px;
   cursor: pointer;
   border: 1px solid black;
 }
 
+#logoutBtn {
+  background-color: #42d9f4;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid black;
+  
+}
 .cart-icon {
   width: 24px;
   cursor: pointer;
@@ -157,24 +190,24 @@ button:hover {
   }
 
   .search-and-tabs {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    margin-left: 350px;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  
+}
 
-  } 
-
-  .search-and-tabs input {
-    width: 18%;
-    position: absolute;
-    padding: 8px;
-    left: 110px;
-    border-radius: 20px;
-    border: 1px solid #FFFFFF;
-    flex: 1;
-  }
+.search-and-tabs input {
+  width: 20%;
+  padding: 8px 8px 8px 36px; /* Left padding for the image */
+  border-radius: 20px;
+  border: 1px solid #FFFFFF;
+  background: url('images/search-interface-symbol.png') no-repeat 10px center;
+  background-size: 16px 16px;
+  position: relative;
+  flex: 1;
+}
 
   .tabs a {
     margin: 0 10px;
@@ -182,6 +215,7 @@ button:hover {
     cursor: pointer;
     color: black;
   }
+
   .menu-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -232,10 +266,26 @@ button:hover {
     bottom: 15px;
   }
 
+
   @media (max-width: 768px) {
 .menu-grid {
   grid-template-columns: 1fr;
 }
+.search-and-tabs input {
+    width: 40%;
+    position: absolute;
+    padding: 8px;
+    left: 110px;
+    border-radius: 20px;
+    border: 1px solid #FFFFFF;
+    flex: 1;
+  }
+
+  .searchBild{
+    width: 24px;
+    margin-left: -50%;
+  }
+
 }
   </style>
 
@@ -244,28 +294,28 @@ button:hover {
     <link rel="icon" type="image/x-icon" href="../images/image-removebg-preview.png">
 </head>
 <body>
-  <div class="header">
-    <div class="leftsection">
-        <div class="logoclick">
-            <a href="index.html"><img src="../images/image-removebg-preview.png" alt="logo" class="logo"></a>
-            <a href="index.html"><span class="site">Ät.se</span></a>
+    <div class="header">
+        <div class="leftsection">
+            <div class="logoclick">
+                <a href="index.html"><img src="../images/image-removebg-preview.png" alt="logo" class="logo"></a>
+                <a href="index.html" style="text-decoration: none"><span class="site">Ät.se</span></a>
+            </div>
+        <a href="omoss.html"><button class="omoss">Om oss</button></a>
         </div>
-    <a href="omoss.html"><button class="omoss">Om oss</button></a>
+        <div class="logincart">
+            <a href="login.html"><button class="login">Logga In</button></a>
+            <a href="register.html"><button class="register">Registrera</button></a>
+            <button id="logoutBtn" style="display:none;">Logga ut</button>
+            <a href="kundvagn.html"><img src="../images/basket-cart-icon-27.png" alt="cart" class="cart-icon"></a>
+        </div>
     </div>
-    <div class="logincart">
-        <span id="balance-text">Balance: $0.00</span>
-        <a href="login.html"><button class="login">Logga In</button></a>
-        <a href="register.html"><button class="register">Registrera</button></a>
-        <a href="kundvagn.html"><img src="../images/basket-cart-icon-27.png" alt="cart" class="cart-icon"></a>
-    </div>
-</div>
   <div class="container">
     <div class="header">
       <div class="header-left">
         <img src="./images/sånnegardens-logo.jpg" alt="RestaurangensBild">
         <div class="header-info">
           <h2 id="rName">Sannegårdens Pizzeria</h2>
-          <p>Pizzera kedja</p>
+          <p>Pizzeria</p>
           <p>⭐ 4.3/5 (30+) | (icon) Mer info</p>
         </div>
       </div>
@@ -285,62 +335,76 @@ button:hover {
     </div>
 
   </div>
-    <div class="search-and-tabs">    
-      <img class="searchBild" src="../images/search-interface-symbol.png" alt="sökBild">
-      <input class="searchDel" type="text" placeholder="Sök i meny" onkeyup="filterMenu()">
-      <div class="tabs">
-        <nav>
-          <a href="#popular">Populärt</a>
-          <a href="#notkott">Nötkött</a>
-          <a href="#kyckling">Kyckling</a>
-          <a href="#vegetarisk">Vegetarisk</a>
-          <a href="#nyamaträtter">Nya maträtter!</a>
-        </nav>
-      </div>
-    </div>
+  <div class="search-and-tabs">    
+    <input class="searchDel" type="text" placeholder="Sök i meny" onkeyup="filterMenu()">
+  </div>
 
       <div class="menu-grid" id="menuGrid"></div>
-
+      
+      <script src="loginLogik.js"></script>
       <script>
-      fetch('/api/sannegardensMeny')
-        .then(res => res.json())
-        .then(data => {
-          const menuGrid = document.getElementById('menuGrid');
-          data.forEach(meal => {
-            const div = document.createElement('div');
-            div.className = 'menu-item';
-            div.innerHTML = `
-              <div class="menu-details">
-                <h3>${meal.name}</h3>
-                <strong>${meal.price} kr</strong>
-                <p>${meal.description}</p>
-              </div>
-              <img src="${meal.image_path || ''}" alt="${meal.name}">
-              <div class="plus-button" onclick="addToCart('${meal.name}', '${meal.price}', event)">+</div>
-            `;
-            menuGrid.appendChild(div);
+  function checkLogin(event) {
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  if (!isLoggedIn) {
+    event.preventDefault();
+    showLoginPopup();
+    return false;
+  }
+  return true;
+}
+        fetch('/api/sannegardensMeny')
+          .then(res => res.json())
+          .then(data => {
+            const menuGrid = document.getElementById('menuGrid');
+            data.forEach(meal => {
+              const div = document.createElement('div');
+              div.className = 'menu-item';
+              div.innerHTML = `
+                <div class="menu-details">
+                  <h3>${meal.name}</h3>
+                  <strong>${meal.price} kr</strong>
+                  <p>${meal.description}</p>
+                </div>
+                <img src="${meal.image_path || ''}" alt="${meal.name}">
+                <div 
+                  class="plus-button" 
+                  data-name="${meal.name}"
+                  data-price="${meal.price}"
+                  data-image="${meal.image_path || ''}"
+                  onclick="addToCartFromElement(this, event)"
+                >+</div>
+              `;
+              menuGrid.appendChild(div);
+            });
           });
-        });
-
-        function addToCart(name, price, event) {
+        
+        function addToCartFromElement(element, event) {
+          const name = element.dataset.name;
+          const price = element.dataset.price;
+          const image = element.dataset.image;
+        
+          addToCart(name, price, image, event);
+        }
+        
+        function addToCart(name, price, image, event) {
           let existingItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-
+        
           const existingItemIndex = existingItems.findIndex(item => item.name === name);
-
+        
           if (existingItemIndex > -1) {
             existingItems[existingItemIndex].quantity += 1;
           } else {
             const item = {
               name: name,
               price: price,
+              img: image,
               quantity: 1
             };
             existingItems.push(item);
           }
-
+        
           localStorage.setItem("cartItems", JSON.stringify(existingItems));
-
-          // Create confirmation message
+        
           const msg = document.createElement("div");
           msg.textContent = "✓ Adderade till kundvagn";
           msg.style.position = "absolute";
@@ -350,19 +414,15 @@ button:hover {
           msg.style.borderRadius = "4px";
           msg.style.fontSize = "14px";
           msg.style.zIndex = "1000";
-
-          
+        
           const rect = event.target.getBoundingClientRect();
           msg.style.left = `${rect.left + window.scrollX}px`;
-          msg.style.top = `${rect.bottom + window.scrollY + 5}px`; 
-
+          msg.style.top = `${rect.bottom + window.scrollY + 5}px`;
+        
           document.body.appendChild(msg);
-
           setTimeout(() => msg.remove(), 1000);
         }
-
         </script>
-  
     </div>
 </body>
 </html>
