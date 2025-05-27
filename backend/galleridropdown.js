@@ -1,24 +1,89 @@
-const fakeFoods = [
-    "Pizza", "Hamburgare", "Sushi", "Kebab", "Falafel", "Pad Thai", "Pho", "Ramen",
-    "Tacos", "Burrito", "Gyros", "Pasta", "Lasagne", "Risotto", "Curry", "Biryani",
-    "Schnitzel", "Toast Skagen", "Gravad lax", "Köttbullar", "Raggmunk", "Fiskgratäng",
-    "Korv med bröd", "Kebabpizza", "Veganburgare", "Caesarsallad", "Nachotallrik",
-    "Wok", "Laxpasta", "Torsk med äggsås", "Oxfilé", "Pulled pork", "Kycklingwrap",
-    "Halloumiburgare", "Club sandwich", "Baguette", "Fish and Chips", "Quesadilla",
-    "Mozzarellasticks", "Onion Rings", "Friterad kyckling", "Bibimbap", "Tempura", "Dim Sum",
-    "Kyckling Deluxe", "BBQ Chicken Pizza", "Kyckling & Bacon",
-    "Köttälskaren", "Taco Pizza", "Biff & Bearnaise",
-    "Vegetariana", "Grönkål & Feta", "Vegan Feast",
-    "Husets Sallad", "Chokladmousse", "Läsk 33cl",
-    "Originalmål", "Chili n Cheese", "Friscoburgare",
-    "Delifresh Kycklingmål", "Crispy Kyckling", "Spicy Kyckling",
-    "Green Burger", "Vegansk Nuggets Meal",
-    "Lyxshake Choklad", "Liten pommes", "Dipp BBQ", "Stor Läsk 50cl",
-    "Pad Namman Hoi Nöt", "Nöt Massaman Curry", "Nötgryta med Basilika",
-    "Vegetarisk Pad Thai", "Grönsakswok med Cashewnötter", "Röd Curry Vegan",
-    "Kyckling Panang Curry", "Gai Pad Med Mamuang", "Kyckling Satay"
-  ];
-  
+const foodToPage = {
+  "Pizza": "../backend/public/pizzahutMeny.html",
+  "Kebabpizza": "../backend/public/pizzahutMeny.html",
+  "Taco Pizza": "../backend/public/pizzahutMeny.html",
+  "Vegetariana": "../backend/public/pizzahutMeny.html",
+  "Köttälskaren": "../backend/public/pizzahutMeny.html",
+  "BBQ Chicken Pizza": "../backend/public/pizzahutMeny.html",
+  "Pepperoni Lovers": "../backend/public/pizzahutMeny.html",
+  "Pulled Beef BBQ": "../backend/public/pizzahutMeny.html",
+  "Margherita": "../backend/public/pizzahutMeny.html",
+  "Caesar Salad": "../backend/public/pizzahutMeny.html",
+  "Halloumi King": "../backend/public/pizzahutMeny.html",
+  "Gourmet Chicken Chips": "../backend/public/pizzahutMeny.html",
+  "Flexi Whopper": "../backend/public/pizzahutMeny.html",
+  "Halloumi King Jr.": "../backend/public/pizzahutMeny.html",
+  "Chicken Royale": "../backend/public/pizzahutMeny.html",
+  "Crispy Chicken": "../backend/public/pizzahutMeny.html",
+
+  "Hamburgare": "../backend/public/mcdonaldsMeny.html",
+  "Friscoburgare": "../backend/public/mcdonaldsMeny.html",
+  "Chili n Cheese": "../backend/public/mcdonaldsMeny.html",
+  "Green Burger": "../backend/public/mcdonaldsMeny.html",
+  "Spicy Kyckling": "../backend/public/mcdonaldsMeny.html",
+  "Kyckling & Bacon": "../backend/public/mcdonaldsMeny.html",
+  "Mozzarellasticks": "../backend/public/mcdonaldsMeny.html",
+  "Onion Rings": "../backend/public/mcdonaldsMeny.html",
+  "Big Mac": "../backend/public/mcdonaldsMeny.html",
+  "Pommes Frites": "../backend/public/mcdonaldsMeny.html",
+  "Cheeseburgare": "../backend/public/mcdonaldsMeny.html",
+  "Happy Meal Hamburgare": "../backend/public/mcdonaldsMeny.html",
+  "Coca-Cola": "../backend/public/mcdonaldsMeny.html",
+  "McWrap® Classic Chicken": "../backend/public/mcdonaldsMeny.html",
+  "Tasty Chicken Burger": "../backend/public/mcdonaldsMeny.html",
+  "Vegetable Deluxe": "../backend/public/mcdonaldsMeny.html",
+  "McPlant®": "../backend/public/mcdonaldsMeny.html",
+  "Side Salad": "../backend/public/mcdonaldsMeny.html",
+  "9 Chicken Nuggets": "../backend/public/mcdonaldsMeny.html",
+
+  "Originalmål": "../backend/public/maxMeny.html",
+  "Delifresh Kycklingmål": "../backend/public/maxMeny.html",
+  "Crispy Kyckling": "../backend/public/maxMeny.html",
+  "Lyxshake Choklad": "../backend/public/maxMeny.html",
+  "Liten pommes": "../backend/public/maxMeny.html",
+  "Stor Läsk 50cl": "../backend/public/maxMeny.html",
+  "Dipp BBQ": "../backend/public/maxMeny.html",
+  "Halloumiburgare": "../backend/public/maxMeny.html",
+  "Vegansk Nuggets Meal": "../backend/public/maxMeny.html",
+
+  "Kebab": "../backend/public/sånnegardensMeny.html",
+  "Falafel": "../backend/public/sånnegardensMeny.html",
+  "Kycklingwrap": "../backend/public/sånnegardensMeny.html",
+  "Nachotallrik": "../backend/public/sånnegardensMeny.html",
+  "Kyckling Deluxe": "../backend/public/sånnegardensMeny.html",
+  "Biff & Bearnaise": "../backend/public/sånnegardensMeny.html",
+  "Grönkål & Feta": "../backend/public/sånnegardensMeny.html",
+  "Vegan Feast": "../backend/public/sånnegardensMeny.html",
+  "Husets Sallad": "../backend/public/sånnegardensMeny.html",
+  "Chokladmousse": "../backend/public/sånnegardensMeny.html",
+  "Läsk 33cl": "../backend/public/sånnegardensMeny.html",
+
+  "Pad Thai": "../backend/public/thaimatMeny.html",
+  "Vegetarisk Pad Thai": "../backend/public/thaimatMeny.html",
+  "Pad Namman Hoi Nöt": "../backend/public/thaimatMeny.html",
+  "Kyckling Panang Curry": "../backend/public/thaimatMeny.html",
+  "Gai Pad Med Mamuang": "../backend/public/thaimatMeny.html",
+  "Röd Curry Vegan": "../backend/public/thaimatMeny.html",
+  "Nöt Massaman Curry": "../backend/public/thaimatMeny.html",
+  "Nötgryta med Basilika": "../backend/public/thaimatMeny.html",
+  "Grönsakswok med Cashewnötter": "../backend/public/thaimatMeny.html",
+  "Kyckling Satay": "../backend/public/thaimatMeny.html",
+
+  "Burger King": "../backend/public/burgerKingMeny.html",
+  "Whopper": "../backend/public/burgerKingMeny.html",
+  "Bacon King": "../backend/public/burgerKingMeny.html",
+  "Fish King": "../backend/public/burgerKingMeny.html",
+
+  "Pho": "../backend/public/thaimatMeny.html",
+  "Ramen": "../backend/public/thaimatMeny.html",
+  "Bibimbap": "../backend/public/thaimatMeny.html",
+  "Dim Sum": "../backend/public/thaimatMeny.html",
+  "Tempura": "../backend/public/thaimatMeny.html"
+};
+
+
+  const fakeFoods = Object.keys(foodToPage);
+
   
   const input = document.getElementById("input");
   
@@ -82,6 +147,18 @@ const fakeFoods = [
   
     dropdown.style.display = "block";
   }
+  input.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    const value = input.value.trim();
+
+    if (foodToPage[value]) {
+      window.location.href = foodToPage[value];
+    } else {
+      alert("Ingen meny hittades för det du skrev.");
+    }
+  }
+});
   
   input.addEventListener("input", filterFoods);
   

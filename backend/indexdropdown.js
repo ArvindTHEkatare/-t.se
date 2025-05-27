@@ -419,26 +419,82 @@ const fakeAddresses = [
 ];
 
 const input = document.getElementById("input");
-const suggestionsBox = document.getElementById("suggestions");
 
-input.addEventListener("input", () => {
-  const inputValue = input.value.trim().toLowerCase();
-  suggestionsBox.innerHTML = "";
+const dropdown = document.createElement("ul");
+dropdown.id = "dropdownList";
 
-  if (inputValue === "") return;
+Object.assign(dropdown.style, {
+  position: "absolute",
+  zIndex: "1000",
+  background: "#fff",
+  border: "1px solid #ccc",
+  borderRadius: "0.375rem",
+  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+  listStyle: "none",
+  padding: "0.25rem 0",
+  margin: "0",
+  display: "none",
+  maxHeight: "240px",
+  overflowY: "auto",
+  width: input.offsetWidth + "px",
+  fontSize: window.getComputedStyle(input).fontSize,
+  fontFamily: window.getComputedStyle(input).fontFamily,
+  boxSizing: "border-box"
+});
 
-  const filteredAddresses = fakeAddresses.filter(address =>
-    address.toLowerCase().startsWith(inputValue)
+document.querySelector(".searchbar").appendChild(dropdown);
+
+function filterAddresses() {
+  const searchValue = input.value.toLowerCase();
+  dropdown.innerHTML = "";
+
+  if (searchValue === "") {
+    dropdown.style.display = "none";
+    return;
+  }
+
+  const filtered = fakeAddresses.filter(addr =>
+    addr.toLowerCase().includes(searchValue)
   );
 
-  filteredAddresses.forEach(address => {
-    const div = document.createElement("div");
-    div.classList.add("suggestion");
-    div.textContent = address;
-    div.addEventListener("click", () => {
-      input.value = address;
-      suggestionsBox.innerHTML = "";
+  if (filtered.length === 0) {
+    dropdown.style.display = "none";
+    return;
+  }
+
+  filtered.forEach(addr => {
+    const li = document.createElement("li");
+    li.textContent = addr;
+    Object.assign(li.style, {
+      padding: "8px",
+      cursor: "pointer"
     });
-    suggestionsBox.appendChild(div);
+    li.onclick = () => {
+      input.value = addr;
+      dropdown.innerHTML = "";
+      dropdown.style.display = "none";
+    };
+    li.onmouseover = () => li.style.background = "#f0f0f0";
+    li.onmouseout = () => li.style.background = "white";
+    dropdown.appendChild(li);
   });
+
+  dropdown.style.display = "block";
+}
+input.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    const address = input.value.trim();
+    if (address !== "") {
+      window.location.href = `../frontend/galleri.html?address=${encodeURIComponent(address)}`;
+    }
+  }
+});
+
+input.addEventListener("input", filterAddresses);
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".searchbar")) {
+    dropdown.style.display = "none";
+  }
 });

@@ -37,13 +37,14 @@
     </div>
     <!--Söklådan för adress-->
     <div class="middlesection">
-        <img src="../images/free-location-icon-2952-thumb.png" alt="gps" class="gps">
-        <div class="leveransadress">
-          <div class="textadress" style="position: relative;">
-            <input type="text" id="input" placeholder="Ange Leveransadress" oninput="filterAddresses()" />
-            <ul id="dropdownList" class="dropdown"></ul>
-          </div>
-        </div>
+            <div class="leveransadress">
+            <div class="textadress" style="position: relative;">
+                <div class="searchbar" style="position: relative; display: inline-block;">
+                    <input type="text" id="input" placeholder="Ange Leveransadress" autocomplete="off">
+                </div>
+                <div id="suggestions" class="dropdown"></div>
+            </div>
+            </div>
       </div>      
     <!--kod för keyframe-->
     <div class="slider">

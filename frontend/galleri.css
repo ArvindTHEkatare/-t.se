@@ -126,34 +126,39 @@ transform: scale(1.05);
     transform: scale(1.05);
   }
 
-  .rest {
-    padding: 40px 20px;
-  }
-  
-  .rest-card {
-    text-align: center;
-    background-color: white;
-    border-radius: 20px;
-    padding: 5px;
-    height: 100%;
-  }
-  
-  .rest-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .rest-card img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 15px;
-  }
-  
-  .caption {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #333;
-  }
+.rest {
+  padding: 40px 20px;
+}
+
+
+.rest-card {
+  text-decoration: none;
+
+  text-align: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+  height: 100%;
+}
+
+.rest-card:hover {
+  transform: scale(1.05);
+}
+
+.rest-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.caption {
+  text-decoration: none;
+
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
 
   
   .bottomsection {
