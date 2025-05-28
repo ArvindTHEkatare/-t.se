@@ -75,18 +75,20 @@ VALUES
 
 
 
-INSERT INTO meals_BurgerKing (name, description, price, image_path)
-VALUES 
-    ('Whopper', 'Vad är godare än en Whopper? Nya WHOPPER! För första gången sedan 1957 har receptet förbättrats. Samma fräscha ingredienser, ännu saftigare nötkött och fluffigare bröd', 70, ''),
-    ('Bacon King', 'Den ikoniska Bacon King – mer överdådig än någonsin. Vi har gett din favoritburgare en uppgradering värdig en kung.', 65, ''),
-    ('Fish King', 'Vår panerade fiskburgare med sallad och majonnäs.', 40, ''),
-    ('Caesar Salad', 'Caesarsallad med kyckling, ost, krutonger, bulgur och romansallad', 50, ''),
-    ('Halloumi King', 'Äkta Halloumi från Cypern och i ett potatisbröd. Komplett med fräsch sallad, tomat, lök och vegansk majonnäs.', 60, ''),
-    ('Gourmet Chicken Chipotle', 'En rökig dröm! Prova Gourmet Chipotle – en krispig, friterat kycklingburgare i fluffigt bröd. Med kryddig Pepper Jack cheese, bacon, fräsch sallad och skivad tomat. ', 90, ''),
-    ('Flexi Whopper', 'Precis som en Whopper, men med en bas av växter! Krämig vegansk majonnäs, ketchup, sallad, tomat, saltgurka och lök.', 80, ''),
-    ('Halloumi King Jr.', 'Äkta Halloumi från Cypern. Komplett med fräsch sallad, tomat och majonnäs.', 30, ''),
-    ('Chicken Royale', 'En extra lång burgare med saftig, panerad kycklingfilé, färsk sallad och majonnäs.', 89, ''),    
-    ('Crispy Chicken', 'En friterad kycklingburgare med krispig sallad, tomater och dressing', 25.00, '');
+
+INSERT INTO public.meals_burgerking VALUES (1, 'Whopper', 'Vad är godare än en Whopper? Nya WHOPPER! För första gången sedan 1957 har receptet förbättrats. Samma fräscha ingredienser, ännu saftigare nötkött och fluffigare bröd', 70.00, 'images/whopper.png
+');
+INSERT INTO public.meals_burgerking VALUES (2, 'Bacon King', 'Den ikoniska Bacon King – mer överdådig än någonsin. Vi har gett din favoritburgare en uppgradering värdig en kung.', 65.00, 'images/bacon-king.jpg
+');
+INSERT INTO public.meals_burgerking VALUES (3, 'Fish King', 'Vår panerade fiskburgare med sallad och majonnäs.', 40.00, 'images/fish-king.png');
+INSERT INTO public.meals_burgerking VALUES (4, 'Caesar Salad', 'Caesarsallad med kyckling, ost, krutonger, bulgur och romansallad', 50.00, 'images/caesar-salad.webp');
+INSERT INTO public.meals_burgerking VALUES (5, 'Halloumi King', 'Äkta Halloumi från Cypern och i ett potatisbröd. Komplett med fräsch sallad, tomat, lök och vegansk majonnäs.', 60.00, 'images/halloumi-king.webp');
+INSERT INTO public.meals_burgerking VALUES (6, 'Gourmet Chicken Chipotle', 'En rökig dröm! Prova Gourmet Chipotle – en krispig, friterat kycklingburgare i fluffigt bröd. Med kryddig Pepper Jack cheese, bacon, fräsch sallad och skivad tomat. ', 90.00, 'images/gourmet-chicken.png');
+INSERT INTO public.meals_burgerking VALUES (7, 'Flexi Whopper', 'Precis som en Whopper, men med en bas av växter! Krämig vegansk majonnäs, ketchup, sallad, tomat, saltgurka och lök.', 80.00, 'images/flexi-whopper.webp');
+INSERT INTO public.meals_burgerking VALUES (8, 'Halloumi King Jr.', 'Äkta Halloumi från Cypern. Komplett med fräsch sallad, tomat och majonnäs.', 30.00, 'images/halloumi-king-jr.png');
+INSERT INTO public.meals_burgerking VALUES (9, 'Chicken Royale', 'En extra lång burgare med saftig, panerad kycklingfilé, färsk sallad och majonnäs.', 89.00, 'images/chicken-royale.jpg');
+INSERT INTO public.meals_burgerking VALUES (10, 'Crispy Chicken', 'En friterad kycklingburgare med krispig sallad, tomater och dressing', 25.00, 'images/crispy-chicken.webp');
+INSERT INTO public.meals_burgerking VALUES (11, 'a', 'a', 12.00, 'a');
 
 INSERT INTO meals_PizzaHut (name, description, price, image_path)
 VALUES 
@@ -167,4 +169,6 @@ INSERT INTO meals_thaimat (name, description, price, image_path) VALUES
     phone_number VARCHAR(20),
     email VARCHAR(100)
 );
+
+
 
