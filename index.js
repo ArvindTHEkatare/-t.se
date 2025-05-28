@@ -20,11 +20,12 @@
     const app = express();
     const port = 3000;
     const db = new pg.Pool({
-        user: 'postgres',
-        host: 'localhost',
+        user: 'onlinematleverans_user',
+        host: 'dpg-d0reccripnbc73b5k4ag-a',
         database: 'onlinematleverans',
-        password: 'etmyyjy5',
+        password: 'hQkY7lZR2ui2rf5ZrVOwoqs8yRdkzGME',
         port: 5432,
+        ssl: { rejectUnauthorized: false }
     });
 
     //sparar filename och dirname, använder url, path och det är egentligen moduler
