@@ -621,7 +621,10 @@ function requireAdmin(req, res, next) {
             res.status(500).send('Error vid raderande av meal');
         }
     });
- 
+ app.get('/api/test', (req, res) => {
+  res.json({ message: 'API is working!' });
+});
+
 //visa vilken port man är på  
 app.listen(port, () => {
     console.log(`Lyssnar på port ${port}`);
