@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Pizza Hut - ät.se</title>
+
+   <link rel="icon" type="image/x-icon" href="../images/image-removebg-preview.png"> 
+   <link rel="stylesheet" href="produktStyle.css">
+</head>
+<body>
+    <div class="header">
+        <div class="leftsection">
+            <div class="logoclick">
+                <a href="index.html"><img src="../images/image-removebg-preview.png" alt="logo" class="logo"></a>
+                <a href="index.html" style="text-decoration: none"><span class="site">Ät.se</span></a>
+            </div>
+        <a href="omoss.html"><button class="omoss">Om oss</button></a>
+        </div>
+        <div class="logincart">
+            <a href="login.html"><button class="login">Logga In</button></a>
+            <a href="register.html"><button class="register">Registrera</button></a>
+            <button id="logoutBtn" style="display:none;">Logga ut</button>
+            <a href="kundvagn.html"><img src="../images/basket-cart-icon-27.png" alt="cart" class="cart-icon"></a>
+        </div>
+    </div><!-- restaurang bild, namn på restaurang osv -->
+  <div class="container">
+    <div class="header">
+      <div class="header-left">
+        <img src="./images/pizzahut-logo.png" alt="RestaurangensBild">
+        <div class="header-info">
+          <h2 id="rName">Pizzahut</h2>
+          <p>Pizzakedja</p>
+          <p>⭐ 4.5/5 (30+)</p>
+        </div>
+      </div>
+
+
+  </div>
+
+      <div class="menu-grid" id="menuGrid"></div>
+
+      <script src="loginLogik.js"></script>
+
+      <script>
+        //använder api. hämstar maträtten (från databasen, tabellen) och sparar värdet från name, price, description, image_path och sen appendar (visar det). 
+        //det här är gemensamt för alla produkt sidor fast en annan api(fetch) för varje
+        //anropar även addTocartfromelevent funktionen
+        fetch('/api/pizzahutMeny')
+          .then(res => res.json())
+          .then(data => {
+            const menuGrid = document.getElementById('menuGrid');
+            data.forEach(meal => {
+              const div = document.createElement('div');
+              div.className = 'menu-item';
+              div.innerHTML = `
+                <div class="menu-details">
+                  <h3>${meal.name}</h3>
+                  <strong>${meal.price} kr</strong>
+                  <p>${meal.description}</p>
+                </div>
+                <img src="${meal.image_path || ''}" alt="${meal.name}">
+                <div 
+                  class="plus-button" 
+                  data-name="${meal.name}"
+                  data-price="${meal.price}"
+                  data-image="${meal.image_path || ''}"
+                  onclick="addToCartFromElement(this, event)"
+                >+</div>
+              `;
+              menuGrid.appendChild(div);
+            });
+          });
+
+        </script>
+        <script src="cartLogik.js"></script>
+  
+    </div>
+</body>
+</html>

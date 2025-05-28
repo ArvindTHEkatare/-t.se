@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ät.se Login</title>
+    <link rel="stylesheet" href="LoggaIn.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="../images/image-removebg-preview.png">
+</head>
+<body>
+  <header>
+    <div class="header">
+      <div class="leftsection">
+          <div class="logoclick">
+              <a href="index.html"><img src="../images/image-removebg-preview.png" alt="logo" class="logo"></a>
+              <a href="index.html" style="text-decoration: none"><span class="site">Ät.se</span></a>
+          </div>
+      <a href="omoss.html"><button class="omoss">Om oss</button></a>
+      </div>
+      <div class="logincart">
+          <a href="login.html"><button class="login">Logga In</button></a>
+          <a href="register.html"><button class="register">Registrera</button></a>
+          <button id="logoutBtn" style="display:none;">Logga ut</button>
+          <a href="kundvagn.html"><img src="../images/basket-cart-icon-27.png" alt="cart" class="cart-icon"></a>
+      </div>
+  </div>
+  </header>
+
+  <main>
+  
+
+    <div class="login-container">
+      <h2>Välkommen!</h2>
+      <p class="subtext">Vänligen logga in eller skapa ett konto</p>
+      <p class="subtext">Admins kan också logga in här.</p>
+
+
+      <form id="loginForm">
+
+        <input type="email" name="email" placeholder="E-post" class="email-input" required />
+        <input type="password" name="password" placeholder="Password:" class="pwd-input" required  />
+        <div class="g-recaptcha" data-sitekey="6LfDkEkrAAAAAKmyCQiSaRVwT9A3T-NdpVRVT9Fs"></div><br>
+        <button class="loginBtn" type="submit">Logga in</button>
+
+      </form>
+      <div class="divider">Eller</div>
+     
+      <a href="register.html"><p class="registerBtn">Registrera dig</p></a>
+  
+      <p>Kontaktuppgifter finns under "Om oss" vid eventuella frågor.</p>
+    </div>
+
+    <p id="errorMsg" style="color:red;"></p>
+
+  </main>
+
+  <script src="loginLogik.js"></script>
+  <script>
+      /* toppmeny med vit bakgrund */
+      const form = document.getElementById('loginForm');
+      const errorMsg = document.getElementById('errorMsg');
+    //skicka formulären (form)
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      //spara olika data som variabler
+      const formData = new FormData(form);
+      const email = formData.get('email');
+      const password = formData.get('password');
+      //gäller även för captcha 
+      const captchaToken = grecaptcha.getResponse();
+
+      if (!captchaToken) {
+        //om captcha är inte svarad alls.
+        errorMsg.textContent = 'Bekräfta att du inte är en robot.';
+        return;
+      }
+//try catch
+      try {
+        //res variabeln är hämtad från /login 
+        const res = await fetch('/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          //skickar email password och captcha response
+          body: JSON.stringify({
+            email,
+            password,
+            'g-recaptcha-response': captchaToken 
+          })
+        });
+        //om response är inte okej. visa det på skärmen
+        if (!res.ok) {
+          const text = await res.text();
+          //alert och även message på login sida. reset captcha
+          alert(text)
+          errorMsg.textContent = text;
+          grecaptcha.reset(); 
+          return;
+        }
+        //sparar data som respons från json
+        const data = await res.json();
+        // om det var godkänt, spara boolean och mejlen. och auto ridrekt.
+        if (data.redirect) {
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('email', email);
+          window.location.href = data.redirect;
+        } else { //annars var det något felaktigft så visa det. (antigen fel e post eller lösenord)
+          errorMsg.textContent = 'Fel e-post eller lösenord.';
+          alert('Fel e-post eller lösenord.')
+          //reset captcha
+          grecaptcha.reset();
+        }
+      
+      } catch (err) {
+        //annars var det server fel och visa det. reset captcha
+        errorMsg.textContent = 'Serverfel. Försök igen senare.';
+        alert('Serverfel. Försök igen senare.')
+        grecaptcha.reset();
+      }
+    });
+  </script>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</body>
+</html>

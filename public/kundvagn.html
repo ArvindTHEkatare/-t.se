@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beställning - Ät.se</title>
+  <link rel="stylesheet" href="kundvagn.css" />
+  <link rel="icon" type="image/x-icon" href="../images/image-removebg-preview.png">
+</head>
+<body>
+  <!-- huvuddel med logga in, om oss, inloggning, tillbaka och kundvagn -->
+  <header>
+    <div class="header">
+        <div class="leftsection">
+            <div class="logoclick">
+                <a href="index.html"><img src="../images/image-removebg-preview.png" alt="logo" class="logo"></a>
+                <a href="index.html" style="text-decoration: none"><span class="site">Ät.se</span></a>
+            </div>
+        <a href="omoss.html"><button class="omoss">Om oss</button></a>
+        </div>
+        <div class="logincart">
+            <a href="login.html"><button class="login">Logga In</button></a>
+            <a href="register.html"><button class="register">Registrera</button></a>
+            <button id="logoutBtn" style="display:none;">Logga ut</button>
+            <a href="kundvagn.html"><img src="../images/basket-cart-icon-27.png" alt="cart" class="cart-icon"></a>
+        </div>
+    </div>
+  </header>
+
+  <main>
+    <h2>Din beställning</h2>
+<!-- kommer visa datum och tiden här -->
+    <div id="dateTimeWrapper"></div>
+
+
+
+
+    <!-- formulär för kunduppgifter och betalning -->
+    <form id="orderForm" class="form" action="/submit-order" method="POST">
+      <!-- fält för namn -->
+      <div class="name-fields">
+        <input type="text" id="first_name" name="first_name" placeholder="Förnamn" required />
+        <input type="text" id="last_name" name="last_name" placeholder="Efternamn" required >
+      </div>
+      <!-- telefonnummer med landskod -->
+      <div class="phone-field">
+        <img src="https://flagcdn.com/w40/se.png" width="30" class="me-2" alt="Swedish flag"> 
+        <input type="tel"id="phone_number" name="phone_number" placeholder="Telefonnummer" required />
+      </div>
+
+      <!-- fält för email -->
+      <input type="email" id="email" name="email" required placeholder="E-post" class="email" />
+      
+
+      <div id="totalPriceWrapper" style="text-align: center; font-size: 18px; font-weight: bold; margin-top: 20px;"></div>
+      <!-- val av betalningsmetod -->
+      <div class="payment-section">
+        <label><input type="radio" name="payment" /> Kortbetalning (Visa, Mastercard)</label>
+        <label><input type="radio" name="payment" /> Swish</label>
+        <label><input type="radio" name="payment" /> Klarna</label>
+      </div>
+      <button type="submit" class="submit-btn" onclick="submitOrder(event)">Slutför beställning</button>
+    </form>
+  </main>
+
+  <script src="loginLogik.js"></script>
+
+  <script>
+//sparar mejlen som finns på localstorage
+  const savedEmail = localStorage.getItem("email");
+  if (savedEmail) {
+    document.getElementById("email").value = savedEmail;
+  }
+//spara kund vagn varor
+const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+//funktion som använder json och anvädnder strinify på cartItems variabeln
+function saveCartItems() {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+}
+//renderCart funktion
+function renderCart() {
+    //sparar, main för main html egenskap
+    const main = document.querySelector("main");
+    //sparar form för form html egenskap
+    const form = main.querySelector("form");
+
+    //existerande boxes (maträtten, antal, pris osv kommer visas här)
+    const existingBoxes = main.querySelectorAll(".order-box");
+    existingBoxes.forEach(box => box.remove());
+
+    //om det finns mer än 0 varor (1 eller högre)
+    if (cartItems.length > 0) {
+        //för varje vara: (tar in index och item arguement)
+        cartItems.forEach((item, index) => {
+            //spara orderBox (och det är barje div) (skapa div)
+            const orderBox = document.createElement("div");
+            //addera det (för classlist)
+            orderBox.classList.add("order-box");
+            //image, (img) alt om image src finns inte och skapa image
+            const img = document.createElement("img");
+            img.src = item.img || 'default.jpg';
+            img.alt = item.name;
+            //skapar div för orderInfo
+            const orderInfo = document.createElement("div");
+            //addera också för classlist
+            orderInfo.classList.add("order-info");
+            //styling för att snygga till, padding från vänster och det är 20px
+            orderInfo.style.paddingLeft = "20px"; 
+            //strong = bold. skapa old
+            const strong = document.createElement("strong");
+            //item name är strong 
+            strong.textContent = item.name;
+            //skapar pris parameter
+            const pricePara = document.createElement("p");
+            //visa det som : Pris: x kr osv
+            pricePara.textContent = "Pris: " + item.price +"kr";
+            //skapar quantitet.
+            const quantityPara = document.createElement("p");
+            quantityPara.textContent = "Antal:";
+            //papperskorg, minus knapp pluss knapp
+            const quantityControls = document.createElement("adiv");
+            quantityControls.classList.add("quantity-controls");
+            //för att minska (med ett för knapen)
+            const minusBtn = document.createElement("button");
+            //minus knappen -
+            minusBtn.textContent = "-";
+            //minska med ett. för varje gång man tryker på -.
+            minusBtn.onclick = () => {
+                if (item.quantity > 1) {
+                    item.quantity--;
+                } else {
+                    cartItems.splice(index, 1); 
+                }
+                //anrop funktioner efter ändringar
+                saveCartItems();
+                renderCart();
+            };
+        
+            const quantitySpan = document.createElement("span");
+            //visa antalet av varan:
+            quantitySpan.textContent = item.quantity;
+            quantitySpan.style.margin = "0 10px";
+            //skapar + knapp nu, öka med 1
+            const plusBtn = document.createElement("button");
+            plusBtn.textContent = "+";
+            plusBtn.onclick = () => {
+                item.quantity++;
+                //anrop savecartitems och render cart funktioner
+                saveCartItems();
+                renderCart();
+            };
+            //skapa pappersskorg knappen
+            const trashBtn = document.createElement("button");
+            trashBtn.textContent = "🗑️";
+            trashBtn.style.marginLeft = "15px";
+            //ta bort varan. gör det här med      cartItems.splice(index, 1);.
+            trashBtn.onclick = () => {
+                cartItems.splice(index, 1);
+                //anrop funktioner då
+                saveCartItems();
+                renderCart();
+            };
+            //quantity controls visar - x + och papperskorgen för att ta bort. x är antalet av ett vara
+            quantityControls.append(minusBtn, quantitySpan, plusBtn, trashBtn);
+            //visa priset, namnet av varan quanititet och -,+ och papperskorg
+            orderInfo.append(strong, pricePara, quantityPara, quantityControls);
+            //visa bilden också med orderInfo
+            orderBox.append(img, orderInfo);
+            //allt det här kommer innan form då (förnamn, efternamn osv)
+            main.insertBefore(orderBox, form);
+        });
+        //visa totalt pris 
+        displayTotalPrice();
+    } else {
+        //skapar ett wrapper.
+        const wrapper = document.createElement("div");
+        wrapper.style.backgroundColor = "white";
+        wrapper.style.padding = "20px";
+        wrapper.style.marginBottom = "20px";
+        wrapper.style.borderRadius = "10px";
+        wrapper.style.width = "20%";
+        wrapper.style.margin = "20px auto";
+        wrapper.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+        wrapper.style.textAlign = "center";
+        //om kundvagn har inget i sig visa att kundvagn är helt tom.
+        const emptyMessage = document.createElement("p");
+        emptyMessage.textContent = "Kundvagn är tom.";
+        emptyMessage.style.fontSize = "30px";
+        emptyMessage.style.margin = "0";
+        //och innan form då.
+        wrapper.appendChild(emptyMessage);
+        const form = document.querySelector("form");
+        form.parentNode.insertBefore(wrapper, form);
+        //total price wrapper 0kr om man har inte lagt till något
+        const totalPriceWrapper = document.getElementById("totalPriceWrapper");
+        totalPriceWrapper.textContent = "Totalt pris: 0kr";
+    }
+}
+//total pris funktion
+function displayTotalPrice() {
+    const totalPriceWrapper = document.getElementById("totalPriceWrapper");
+    //totalt från början är 0kr
+    let total = 0;
+    //för varje item, matte logiken under körs (totalt pris är bara (ny varan *antal st) + summan  )
+    cartItems.forEach(item => {
+        const price = parseFloat(item.price);
+        const quantity = parseInt(item.quantity);
+        if (!isNaN(price) && !isNaN(quantity)) {
+            total += price * quantity;
+        }
+    });
+    //visa det på skärmen
+    totalPriceWrapper.textContent = "Totalt Pris: " + total.toFixed(2) + " SEK";
+}
+
+//anropa rendercart
+renderCart();
+//date time funktionen
+function updateDateTime() {
+    const now = new Date();
+    //användar Se format(tme)
+    const formatted = now.toLocaleString('sv-SE', {
+        year: 'numeric',
+        //tar 2 hänsyn till 2 digit
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+    //spara dateTimewrapper som dateDiv
+    const dateDiv = document.getElementById("dateTimeWrapper");
+    //visa på skärmen
+    dateDiv.textContent = "Datum & tid: " + formatted;
+    //css för att snygga till
+    dateDiv.style.backgroundColor = "white";
+    dateDiv.style.padding = "10px";
+    dateDiv.style.margin = "20px auto";
+    dateDiv.style.width = "20%"
+    dateDiv.style.textAlign = "center";
+    dateDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+    dateDiv.style.borderRadius = "10px";
+}
+//dubbel kollar så man skickar inte en tom korg
+let isSubmitting = false;
+
+async function submitOrder(event) {
+//förhindra skickandet av ett tom mejl.
+  event.preventDefault();
+  if (isSubmitting) return;
+  isSubmitting = true;
+ //user id är alltid 1. user id har inte haft betydlese för ät.se kedjan
+  const user_id = 1;
+  //spara olika variabller
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const first_name = document.getElementById("first_name").value;
+  const last_name = document.getElementById("last_name").value;
+  const phone_number = document.getElementById("phone_number").value;
+  const email = document.getElementById("email").value;
+  //spara orderDate
+  const orderDate = new Date().toLocaleString('sv-SE', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit'
+});
+  //response fetchar submit order med method post
+  const response = await fetch("/submit-order", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    //skickar följande variabler som sen kommer hanteras
+    body: JSON.stringify({
+      user_id,
+      cartItems,
+      first_name,
+      last_name,
+      phone_number,
+      email,
+      orderDate
+    })
+  });
+  //om respone är ok (godkänt)
+  if (response.ok) {
+    //ta bort alla maträtter från kundvagn
+    localStorage.removeItem("cartItems");
+    //sen redirekt till confirmation sidan
+    window.location.href = "/confirmation";
+  } else { //annars var något felaktigt. låt användaren veta det
+    alert("Fel vid skickande av beställning");
+    isSubmitting = false;  
+  }
+}
+
+
+updateDateTime();
+setInterval(updateDateTime, 1000);
+
+</script>
+  
+</body>
+</html>

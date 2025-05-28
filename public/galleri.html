@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ät.se Galleri</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="galleri.css">
+    <link rel="icon" type="image/x-icon" href="../images/image-removebg-preview.png">
+</head>
+<body>
+  <style>
+          h1,h2 {
+          font-family: Arial, sans-serif;
+        }
+          .site {color: black;}
+  </style>
+    <div class="header">
+        <div class="leftsection">
+            <div class="logoclick">
+                <a href="index.html"><img src="../images/image-removebg-preview.png" alt="logo" class="logo"></a>
+                <a href="index.html" style="text-decoration: none"><span class="site">Ät.se</span></a>
+            </div>
+        <a href="omoss.html"><button class="omoss">Om oss</button></a>
+        </div>
+        <div class="logincart">
+            <a href="login.html"><button class="login">Logga In</button></a>
+            <a href="register.html"><button class="register">Registrera</button></a>
+            <button id="logoutBtn" style="display:none;">Logga ut</button>
+            <a href="kundvagn.html"><img src="../images/basket-cart-icon-27.png" alt="cart" class="cart-icon"></a>
+        </div>
+    </div>
+    <div class="middlesection">
+      <div>
+        
+      </div>
+        <div class="searchbarholder">
+            <div class="searchbar">
+                <input type="text" id="input" placeholder="Sök efter mat">
+            </div>
+        </div>
+    </div>
+    <div class="foodtypes">
+        <img src="" class="fooditem">
+    </div>
+    <div class="deals">
+        <div class="deal1">
+            <h2>Deal</h2>
+            <h3>Köp 2 betala för 3</h3>
+        </div>
+        <div class="deal2">
+          <h2>Deal</h2>
+          <h3>Extra dyr hemleverans</h3>
+        </div>
+        <div class="deal3">
+          <h2>Deal</h2>
+          <h3>Inga mer deals din snåla jävel</h3>
+        </div>
+    </div>
+    <!--Restaurant grid-->
+<div class="rest">
+      <div class="container">
+        <div class="row gx-4 gy-4 justify-content-center">
+
+          <div class="col-12 col-sm-6 col-md-4">
+            <a href="mcdonaldsMeny.html" onclick="return checkLogin(event)" class="rest-card-link">
+              <div class="rest-card">
+                <img src="../images/mcdonalds.png" alt="McDonalds">
+                <div class="caption">McDonalds</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4">
+            <a href="burgerKingMeny.html" onclick="return checkLogin(event)" class="rest-card-link">
+              <div class="rest-card">
+                <img src="../images/pbxl-hero.webp" alt="Burger King">
+                <div class="caption">BurgerKing</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4">
+            <a href="pizzaHutMeny.html" onclick="return checkLogin(event)" class="rest-card-link">
+              <div class="rest-card">
+                <img src="../images/pizaahut.jpg" alt="PizzaHut">
+                <div class="caption">PizzaHut</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4">
+            <a href="sånnegardensMeny.html" onclick="return checkLogin(event)" class="rest-card-link">
+              <div class="rest-card">
+                <img src="../images/sannegårdens.png" alt="Sannegårdens">
+                <div class="caption">Sannegårdens Pizzeria</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4">
+            <a href="maxMeny.html" onclick="return checkLogin(event)" class="rest-card-link">
+              <div class="rest-card">
+                <img src="../images/maxbbg.webp" alt="Max Hamburgare">
+                <div class="caption">Max Hamburgare</div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4">
+            <a href="thaimatMeny.html" onclick="return checkLogin(event)" class="rest-card-link">
+              <div class="rest-card">
+                <img src="../images/thaimat.webp" alt="Thaimat">
+                <div class="caption">Äkta Thaimat</div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+<div class="bottomsection">
+        <div class="footer-row">
+          <div class="footer-col">
+            <h2>Följ oss</h2>
+            <h2>Instagram</h2>
+            <h2>Facebook</h2>
+          </div>
+          <div class="footer-col">
+            <h2>Kontakt</h2>
+            <h2>skibidisigma@gmail.com</h2>
+            <h2>072022202022</h2>
+          </div>
+          <div class="footer-col">
+            <h2>Jobb</h2>
+            <h2>Wolt</h2>
+            <h2>Leverans</h2>
+          </div>
+        </div>
+</div>
+      
+<div id="loginPopup" style="display:none;" class="popup-overlay">
+    <div class="popup-box">
+      <h2>Du är inte inloggad</h2>
+      <p>För att fortsätta måste du logga in.</p>
+      <div class="popup-buttons">
+        <a href="login.html"><button>Logga in</button></a>
+        <button onclick="closeLoginPopup()">Stäng</button>
+      </div>
+    </div>
+  </div>
+  
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+<script src="galleridropdown.js"></script>
+<script src="loginLogik.js"></script>
+
+<script>
+    //visa login popup. (hämtar popup med id av loginPopup)
+    function showLoginPopup() {
+    const popup = document.getElementById('loginPopup');
+    if (popup) popup.style.display = 'flex';
+    }
+
+    //stäng loginpopup(hämtar popup med id av loginPopup)
+    function closeLoginPopup() {
+    const popup = document.getElementById('loginPopup');
+    if (popup) popup.style.display = 'none';
+    }
+
+</script>
+</body>
+</html>

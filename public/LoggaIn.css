@@ -1,0 +1,230 @@
+a {
+    color: black;
+
+}/* bakgrundsfärg för sidan */
+@media (min-width: 768px) {
+  body {
+    margin: 0;
+    background-color: #00D4FF;
+    background-image:url(../images/skibid.png);
+    }
+  }
+
+  /* toppmeny med vit bakgrund */
+/*Header*/ 
+
+.header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 5px 10px;
+background-color: rgb(255, 254, 254);
+}
+
+.leftsection {
+display: flex;
+align-items: center;
+}
+
+.logo {
+width: 45px;
+margin-right: 8px;
+}
+
+.site {
+display: inline-block; 
+position: relative;
+top: -14px; 
+font-size: 1.25rem;
+font-weight: italic;
+padding-right: 1rem;
+text-decoration: none;
+text-shadow: 1px 3px 3px rgba(0,0,0,0.2);
+transition: transform 0.2s ease;
+}
+
+.site:hover {
+transform: scale(1.05);
+}
+
+
+.omoss {
+border: 1px solid black;
+background-color: #42d9f4;
+padding: 8px 14px;
+border-radius: 20px;
+cursor: pointer;
+}
+
+.logincart {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.login {
+background-color: #42d9f4;
+border: none;
+padding: 5px 14px;
+border-radius: 20px;
+cursor: pointer;
+border: 1px solid black;
+}
+
+.register {
+background-color: #42d9f4;
+border: none;
+padding: 5px 14px;
+border-radius: 20px;
+cursor: pointer;
+border: 1px solid black;
+}
+
+.registerBtn{
+  background-color: #9df0ff;
+
+  border: none;
+  width: 200px;
+  margin-left: 12%;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+#logoutBtn {
+background-color: #42d9f4;
+border: none;
+padding: 8px 14px;
+border-radius: 20px;
+cursor: pointer;
+border: 1px solid black;
+
+}
+.cart-icon {
+width: 24px;
+cursor: pointer;
+}
+
+button:hover {
+transform: scale(1.05);
+}
+  
+  /* fet text med loggan */
+  .logo {
+    font-weight: bold;
+  }
+  
+  /* stil för knapparna i toppmenyn */
+  .about-btn, .back-btn {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  /* speciell stil för tillbaka knappen */
+  .back-btn {
+    background-color: #00cfff;
+    color: black;
+    font-weight: bold;
+  }
+  
+  /* ruta för inloggning */
+  .login-container {
+    max-width: 300px;
+    margin: 60px auto;
+    /* background: #00cfff; */
+    text-align: center;
+    color: white;
+  }
+  
+  /* rubrik för inloggninsrutan */
+  .login-container h2 {
+
+    margin-bottom: 10px;
+  }
+
+  h2{
+    color: black;
+  }
+  /* liten text med underrubrik */
+  .subtext {
+    color: black;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+  
+  /* gemensam stil för knapparna */
+  .btn {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+
+  /* text mellan knappar och email */
+  .divider {
+    margin: 0px 0 10px;
+    font-style: italic;
+  }
+  
+  /* fält för email */
+  .email-input {
+    padding: 10px;
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 20px;
+  }
+  
+  .loginBtn{
+    padding: 10px;
+    width: 40%;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  .pwd-input {
+    padding: 10px;
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 20px;
+  }
+
+  /* .btn_login {
+    padding: 10px;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 20px;
+  } */
+  /* länk för att registrera sig */
+  .register {
+    /* text-decoration: underline; */
+    cursor: pointer;
+  }
+
+  /* ikon i knappen */
+  .btn i {
+    margin-right: 10px;
+    font-size: 1.2em;
+    vertical-align: middle;
+  }
+  
+  @media (max-width: 768px) {
+  body {
+    margin: 0;
+    background-color: #00D4FF;
+    }
+  }

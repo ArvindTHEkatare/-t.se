@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bekräftelse - ät.se</title>
+    <link rel="icon" type="image/x-icon" href="../images/image-removebg-preview.png">
+</head>
+<body>
+    <!-- tackar till de som köper och bekräftelsetext, alltså de får en mejl -->
+    <h1>Din beställning har genomförts!</h1>
+    <p>Tack för att du handlar hos <strong>ät.se</strong>.  Du kommer att få en bekräftelse på din e-postadress.</p>
+
+    <!-- skapar en image fält, en gif kommer vara här-->
+    <img id="slumpmässigGif" alt="Tumme upp" width="200">
+    <p>Smaklig måltid!</p>
+    <p>Vid eventuella frågor kontakta gärna oss på eat.sekedja@gmail.com</p>
+
+    <script>
+        //lista/array av 5 gifs, var vi ska välja en 
+        const gifs = [
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHRtejdtazkzaGE0dHp5cW8zNHZ2bWZvN2Uzb3NuNWU1d3M0bXZmOCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/kigfYxdEa5s1ziA2h1/giphy.gif",   // GIF 1
+            "https://media.giphy.com/media/rq7jBVIjy6Kw35PAEi/giphy.gif?cid=ecf05e47jm6rqy4eut2gwf81nwnxyoog6xmjbd7ae84srkml&ep=v1_gifs_search&rid=giphy.gif&ct=g", // GIF 2
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXhxaTQ3YXJpNnE3ZHVkb3JhdjRnaXBxbjYwZGNyeThycXhndGdqcyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1pXpvCZWiU5MCjKeN3/giphy.gif", // GIF 3
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXhxaTQ3YXJpNnE3ZHVkb3JhdjRnaXBxbjYwZGNyeThycXhndGdqcyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MXvc8qsT1uRfpLuow7/giphy.gif", // GIF 4
+            "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDlsNmUxeXNtNHhmNTk0c2M2emZnb3ZndTA0aGV0YzY1bTg4bzk4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KxD1TBbchjbxZJHoYW/giphy.gif"    // GIF 5
+        ];
+        //använder matte logik, kommer välja en av de 5 gifs och spara den
+        const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+
+        //id'n slumpmässigGif kommer inkludera gifen. 
+        document.getElementById("slumpmässigGif").src = randomGif;
+    </script>
+</body>
+</html>

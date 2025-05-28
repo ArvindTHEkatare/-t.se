@@ -1,0 +1,30 @@
+/* för bodyn. */
+body { 
+font-family: Arial; 
+max-width: 800px; 
+margin: auto;
+background-color: #00cfff;
+}
+
+/* för input, text area, olika css: */
+input, textarea { display: block; 
+  margin: 10px 0; 
+  width: 100%; 
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+}
+/* för alla knapp som ingår */
+button { margin-top: 10px; 
+background-color: white;
+padding: 1%; 
+border-radius: 1.5vh;}
+
+/* för då matträtter som finns */
+.meal { border: 2px solid black; 
+  padding: 10px; 
+  border-radius: 20px;  
+  
+  margin-bottom: 10px; }

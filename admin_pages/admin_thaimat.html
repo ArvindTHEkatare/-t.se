@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - ät.se</title>
+  <link rel="stylesheet" href="adminStyle.css">
+</head>
+<body>
+  <h1>AdminPanelen – Lägg till och ta bort maträtter</h1>
+
+  <h2>Addera ny maträtt:</h2>
+  <form id="addMealForm">
+    <input type="text" id="name" placeholder="Namn för maträtten" required>
+    <textarea id="description" placeholder="Beskrivning/ingredienser" required></textarea>
+    <input type="number" id="price" placeholder="Priset för maträtten" step="0.01" required>
+    <input type="text" id="image" placeholder="Bild URL">
+    <button type="submit">Addera maträtten</button>
+  </form>
+
+  <h2>Ta bort befintliga maträtter  </h2>
+  <div id="mealList"></div>
+
+  <script>
+    const mealList = document.getElementById('mealList');
+
+    async function fetchMeals() {
+      const res = await fetch('/api/thaimat');
+      const meals = await res.json();
+      mealList.innerHTML = '';
+      meals.forEach(meal => {
+        const div = document.createElement('div');
+        div.className = 'meal';
+        div.innerHTML = `
+          <strong>${meal.name}</strong><br>
+          ${meal.description}<br>
+          Pris: ${meal.price}kr<br>
+          <button onclick="deleteMeal(${meal.id})">Radera</button>
+        `;
+        mealList.appendChild(div);
+      });
+    }
+
+    async function deleteMeal(id) {
+      await fetch(`/api/thaimat/${id}`, { method: 'DELETE' });
+      fetchMeals();
+    }
+
+    document.getElementById('addMealForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      const newMeal = {
+        name: document.getElementById('name').value,
+        description: document.getElementById('description').value,
+        price: parseFloat(document.getElementById('price').value),
+        image_path: document.getElementById('image').value
+      };
+      await fetch('/api/thaimat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newMeal)
+      });
+      e.target.reset();
+      fetchMeals();
+    });
+
+    fetchMeals();
+  </script>
+</body>
+</html>

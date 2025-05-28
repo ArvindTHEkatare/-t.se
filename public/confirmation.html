@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bekräftelse - ät.se</title>
+    <link rel="icon" type="image/x-icon" href="../images/image-removebg-preview.png">
+    <style>
+        /* style for body */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color:  #00D4FF;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: red;
+        }
+        img {
+            margin-top: 20px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Din beställning har genomförts!</h1>
+        <p>Tack för att du handlar hos oss. Du kommer att få en bekräftelse på din e-postadress.</p>
+
+        
+        <img id="slumpmässigGif" alt="Thumbs Up">
+
+        <br>
+        <a href="/">Tillbaka till startsidan</a>
+    </div>
+
+    <script>
+        // array av 5 gifs. kommer välja en
+        const gifs = [
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHRtejdtazkzaGE0dHp5cW8zNHZ2bWZvN2Uzb3NuNWU1d3M0bXZmOCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/kigfYxdEa5s1ziA2h1/giphy.gif",
+            "https://media.giphy.com/media/rq7jBVIjy6Kw35PAEi/giphy.gif?cid=ecf05e47jm6rqy4eut2gwf81nwnxyoog6xmjbd7ae84srkml&ep=v1_gifs_search&rid=giphy.gif&ct=g",
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXhxaTQ3YXJpNnE3ZHVkb3JhdjRnaXBxbjYwZGNyeThycXhndGdqcyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/1pXpvCZWiU5MCjKeN3/giphy.gif",
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXhxaTQ3YXJpNnE3ZHVkb3JhdjRnaXBxbjYwZGNyeThycXhndGdqcyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MXvc8qsT1uRfpLuow7/giphy.gif",
+            "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDlsNmUxeXNtNHhmNTk0c2M2emZnb3ZndTA0aGV0YzY1bTg4bzk4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KxD1TBbchjbxZJHoYW/giphy.gif"
+        ];
+        // random number och sen kommer välja ett gif baserad på värdet man får.
+        const slumpmässigGif = gifs[Math.floor(Math.random() * gifs.length)];
+        //visa slumpmässiga gifen
+        document.getElementById("slumpmässigGif").src = slumpmässigGif;
+    </script>
+</body>
+</html>

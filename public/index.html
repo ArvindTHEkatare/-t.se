@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemsida - ät.se</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/x-icon" href="../images/image-removebg-preview.png">
+</head>
+<body>
+    <style>
+        h1,h2 {
+          font-family: Arial, sans-serif;
+        }
+        a {
+            color: black;
+        }
+    </style>
+    <!--Här är header och alla knappar inom den-->
+    <div class="header">
+        <div class="leftsection">
+            <div class="logoclick">
+                <a href="index.html"><img src="../images/image-removebg-preview.png" alt="logo" class="logo"></a>
+                <a href="index.html" style="text-decoration: none"><span class="site">Ät.se</span></a>
+            </div>
+        <a href="omoss.html"><button class="omoss">Om oss</button></a>
+        </div>
+        <div class="logincart">
+            <a href="login.html"><button class="login">Logga In</button></a>
+            <a href="register.html"><button class="register">Registrera</button></a>
+            <button id="logoutBtn" style="display:none;">Logga ut</button>
+            <a href="kundvagn.html"><img src="../images/basket-cart-icon-27.png" alt="cart" class="cart-icon"></a>
+        </div>
+    </div>
+    <!--Bara slogan-->
+    <div class="slogan">
+        <h1>Du vet inte när du får mat nästa gång</h1>
+    </div>
+    <!--Söklådan för adress-->
+    <div class="middlesection">
+      <div class="leveransadress">
+        <div class="textadress" style="position: relative;">
+            <div class="searchbar" style="position: relative; display: inline-block;">
+                <input type="text" id="input" placeholder="Ange Leveransadress" autocomplete="off">
+            </div>
+            <div id="suggestions" class="dropdown"></div>
+        </div>
+        </div>
+      </div>      
+    <!--kod för keyframe-->
+    <div class="slider">
+      <div class="slide-track">
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+        <img src="../images/burger-king-transparent-burger-king-free-free-png.webp" class="imageforkf"/>
+      </div>
+    </div>
+<div class="bottomsection">
+        <div class="row">
+            <div class="col1">
+                <h2>Följ oss</h2>
+                <h2>Instagram</h2>
+                <h2>Facebook</h2>
+            </div>
+            <div class="col2">
+                <h2>Kontakt</h2>
+                <h2>skibidisigma@gmail.com</h2>
+                <h2>072022202022</h2>
+            </div>
+            <div class="col3">
+                <h2>Jobb</h2>
+                <h2>Wolt</h2>
+                <h2>Leverans</h2>
+            </div>
+        </div>
+</div>
+<script src="./indexdropdown.js"></script>
+<script>
+       
+window.addEventListener('DOMContentLoaded', () => {
+  const loginBtn = document.querySelector('.login');
+  const registerBtn = document.querySelector('.register');
+  const logoutBtn = document.getElementById('logoutBtn');
+
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+  if (isLoggedIn) {
+    if (loginBtn) loginBtn.style.display = 'none';
+    if (registerBtn) registerBtn.style.display = 'none';
+    if (logoutBtn) logoutBtn.style.display = 'inline-block';
+  } else {
+    if (loginBtn) loginBtn.style.display = 'inline-block';
+    if (registerBtn) registerBtn.style.display = 'inline-block';
+    if (logoutBtn) logoutBtn.style.display = 'none';
+  }
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('email');
+      window.location.href = '/login.html';
+    });
+  }
+});
+</script>
+</body>
+</html>
